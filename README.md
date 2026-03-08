@@ -94,230 +94,205 @@ remotes::install_github("charlescoverdale/hmrc")
 
 ## Examples
 
-### 1. What does the UK raise in tax each month?
+### `get_tax_receipts()` — monthly tax head receipts
 
 ```r
 library(hmrc)
 
-# All 41 tax heads, all months from April 2016
+# Most recent month's receipts, ranked by size
 receipts <- get_tax_receipts()
-
-# Most recent month
-latest <- receipts[receipts$date == max(receipts$date), c("tax_head", "receipts_gbp_m")]
-latest <- latest[order(-latest$receipts_gbp_m), ]
-head(latest, 8)
-#>               tax_head receipts_gbp_m
-#>          total_receipts          79432
-#>             income_tax          24819
-#>              nics_total          14237
-#>                     vat          13461
-#>         corporation_tax           9147
-#>              fuel_duty            2094
-#>          inheritance_tax            709
-#>         air_passenger_duty          530
+latest   <- receipts[receipts$date == max(receipts$date), c("tax_head", "receipts_gbp_m")]
+latest   <- latest[order(-latest$receipts_gbp_m), ]
+head(latest, 6)
+#>           tax_head receipts_gbp_m
+#>     total_receipts          79432
+#>         income_tax          24819
+#>         nics_total          14237
+#>                vat          13461
+#>    corporation_tax           9147
+#>         fuel_duty            2094
 ```
-
-Income Tax, NICs, and VAT together account for around two-thirds of all monthly HMRC receipts — a pattern that has been broadly stable for decades, though the balance is shifting as fiscal drag pulls more earners into higher tax bands.
 
 ---
 
-### 2. How did COVID affect UK tax revenues?
+### `list_tax_heads()` — available tax head identifiers
 
 ```r
-# Three largest tax streams across the pandemic
-pandemic <- get_tax_receipts(
-  tax   = c("income_tax", "vat", "nics_total"),
-  start = "2019-01",
-  end   = "2021-12"
-)
-
-# VAT receipts collapsed when hospitality closed
-pandemic[pandemic$tax_head == "vat" & format(pandemic$date, "%Y-%m") %in% c("2020-03", "2020-04", "2020-05"),
-         c("date", "receipts_gbp_m")]
-#>         date receipts_gbp_m
-#>   2020-03-01          10981
-#>   2020-04-01           3874   # ← first lockdown
-#>   2020-05-01           4512
-```
-
-VAT receipts fell by more than 60% in April 2020 as lockdown shuttered hospitality, retail, and leisure. PAYE Income Tax was partially cushioned by the furlough scheme maintaining nominal employment, but Self Assessment receipts fell sharply in the following financial year.
-
----
-
-### 3. How has Corporation Tax changed?
-
-```r
-ct <- get_tax_receipts(tax = "corporation_tax", start = "2016-04")
-
-# Annual totals (financial year April to March)
-ct$fy <- ifelse(as.integer(format(ct$date, "%m")) >= 4,
-                format(ct$date, "%Y"),
-                as.character(as.integer(format(ct$date, "%Y")) - 1))
-
-aggregate(receipts_gbp_m ~ fy, data = ct, FUN = sum)
-#>     fy receipts_gbp_m
-#>   2016          50036
-#>   2017          56000
-#>   2018          60062
-#>   2019          64258
-#>   2020          48877   # ← COVID dip
-#>   2021          68893
-#>   2022          84282
-#>   2023         105917   # ← rate rise to 25%
-#>   2024         108441
-```
-
-Corporation Tax receipts surged from £60bn to over £100bn between 2018 and 2023, driven by strong profits and a rate increase from 19% to 25% for large companies in April 2023. This made CT one of the fastest-growing revenue streams of the past decade.
-
----
-
-### 4. Has stamp duty reform changed the property market?
-
-```r
-# Residential transactions in England during the SDLT holiday
-sdlt_holiday <- get_property_transactions(
-  type   = "residential",
-  nation = "england",
-  start  = "2020-01",
-  end    = "2022-06"
-)
-
-sdlt_holiday[sdlt_holiday$date %in% as.Date(c("2021-03-01", "2021-06-01", "2021-09-01", "2021-10-01")),
-             c("date", "transactions")]
-#>         date transactions
-#>   2021-03-01       147390   # ← rush before first SDLT holiday deadline
-#>   2021-06-01       192510   # ← rush before extended deadline
-#>   2021-09-01       111440
-#>   2021-10-01        78200   # ← holiday ends, volumes normalise
-```
-
-The 2020–21 SDLT holiday — which raised the nil-rate threshold from £125,000 to £500,000 — produced two sharp spikes in transaction volumes as buyers rushed to beat successive deadlines in March and June 2021, followed by a correction as the relief expired.
-
----
-
-### 5. Combining actuals with OBR forecasts
-
-With the [`obr`](https://github.com/charlescoverdale/obr) package, HMRC receipts actuals can be set against OBR forecasts to assess whether the government is on track.
-
-```r
-library(hmrc)
-library(obr)
-
-# HMRC actuals: total receipts by financial year
-actuals <- get_tax_receipts(tax = "total_receipts")
-actuals$fy <- ifelse(as.integer(format(actuals$date, "%m")) >= 4,
-                     format(actuals$date, "%Y"),
-                     as.character(as.integer(format(actuals$date, "%Y")) - 1))
-actual_totals <- aggregate(receipts_gbp_m ~ fy, data = actuals, FUN = sum)
-
-# OBR forecast: current receipts
-obr_receipts <- get_receipts()
-obr_receipts[obr_receipts$year == "2024-25" & obr_receipts$series == "Public sector current receipts", ]
-#>           year                           series  value
-#>        2024-25  Public sector current receipts  1169.6  # OBR March 2026 forecast, £bn
-
-# HMRC actuals for the same year
-actual_totals[actual_totals$fy == "2024", ]
-#>     fy receipts_gbp_m
-#>   2024         1157438  # actual receipts, £m
-```
-
-The gap between HMRC actuals and OBR forecasts is one of the most important fiscal indicators in the UK — when revenues consistently undershoot, it typically signals either economic weakness or the need for tax rises or spending cuts.
-
----
-
-### 6. Excise duty trends: tobacco in long decline
-
-```r
-tobacco <- get_tax_receipts(tax = "tobacco_duty", start = "2016-04")
-
-# Annual tobacco duty receipts
-tobacco$fy <- ifelse(as.integer(format(tobacco$date, "%m")) >= 4,
-                     format(tobacco$date, "%Y"),
-                     as.character(as.integer(format(tobacco$date, "%Y")) - 1))
-aggregate(receipts_gbp_m ~ fy, data = tobacco, FUN = sum)
-#>     fy receipts_gbp_m
-#>   2016           9705
-#>   2017           9414
-#>   2018           9190
-#>   2019           8974
-#>   2020           9105   # ← locked-down smokers, less duty-free
-#>   2021           8891
-#>   2022           8611
-#>   2023           8389
-#>   2024           8103
-```
-
-Tobacco duty has fallen every year as smoking rates decline. This is a structural revenue loss that no amount of duty rate increases has been able to reverse — the tax base is shrinking faster than the rate rises.
-
----
-
-## Available tax heads
-
-`list_tax_heads()` returns the full catalogue of 41 series available in `get_tax_receipts()`:
-
-```r
+# See all 41 series available in get_tax_receipts()
 list_tax_heads()
-#>                              tax_head                                         description   category available_from
-#>                        total_receipts                               Total HMRC receipts      total           2016
-#>                            income_tax              Income Tax (PAYE and Self Assessment)     income           2016
-#>                     capital_gains_tax                                   Capital Gains Tax     income           2016
-#>                       inheritance_tax                                   Inheritance Tax      income           2016
-#>                   apprenticeship_levy                                Apprenticeship Levy     income           2017
-#>                            nics_total   National Insurance Contributions (all classes)      nics           2016
-#>                         nics_employer   NICs - employer (Class 1 PAYE)                    nics           2016
-#>                         nics_employee   NICs - employee (Class 1 PAYE)                    nics           2016
-#>                    nics_self_employed   NICs - self-employed (Class 2 & 4)                 nics           2016
-#>                                   vat                               Value Added Tax   consumption           2016
-#>                       corporation_tax                          Corporation Tax (onshore)    income           2016
-#>                    diverted_profits_tax                        Diverted Profits Tax        income           2016
-#>                    digital_services_tax                        Digital Services Tax        income           2020
-#>                      energy_profits_levy                       Energy Profits Levy         income           2022
-#>                              fuel_duty           Hydrocarbon Oil Duties (Fuel Duty)   consumption           2016
-#>                         stamp_duty_shares            Stamp Duty Reserve Tax (shares)     property           2016
-#>                                      sdlt                    Stamp Duty Land Tax          property           2016
-#>                              tobacco_duty                              Tobacco Duties   consumption           2016
-#>                            spirits_duty                               Spirits Duties   consumption           2016
-#>                               beer_duty                                  Beer Duties   consumption           2016
-#>                               wine_duty              Wine and Made-Wine Duties          consumption           2016
-#>                              cider_duty                Cider and Perry Duties           consumption           2016
-#>                        gambling_duties              Betting and Gaming Duties           consumption           2016
-#>                      air_passenger_duty                          Air Passenger Duty   consumption           2016
-#>                   insurance_premium_tax                        Insurance Premium Tax   consumption           2016
-#>                            landfill_tax                                  Landfill Tax   environment           2016
-#>                     climate_change_levy                           Climate Change Levy   environment           2016
-#>                        aggregates_levy                               Aggregates Levy   environment           2016
-#>                       soft_drinks_levy                    Soft Drinks Industry Levy   consumption           2018
-#>                   plastic_packaging_tax                       Plastic Packaging Tax   consumption           2022
-#>                        customs_duties                               Customs Duties          other           2016
+#>               tax_head                                    description   category available_from
+#>         total_receipts                            Total HMRC receipts      total           2016
+#>             income_tax         Income Tax (PAYE and Self Assessment)     income           2016
+#>      capital_gains_tax                              Capital Gains Tax     income           2016
+#>        inheritance_tax                              Inheritance Tax      income           2016
+#>     apprenticeship_levy                           Apprenticeship Levy     income           2017
+#>             nics_total  National Insurance Contributions (all classes)   nics           2016
 #>  ...
 ```
 
-The full table also includes `bank_levy`, `bank_surcharge`, `bank_payroll_tax`, `residential_property_developer_tax`, `electricity_generators_levy`, `economic_crime_levy`, `petroleum_revenue_tax`, `ated`, `miscellaneous`, and `penalties`.
+---
+
+### `get_vat()` — monthly VAT receipts
+
+```r
+# VAT receipts vs repayments since 2020
+vat <- get_vat(measure = c("total", "repayments"), start = "2020-01")
+
+# Monthly net VAT: repayments reduce the total
+head(vat[vat$measure == "repayments", c("date", "receipts_gbp_m")], 4)
+#>         date receipts_gbp_m
+#>   2020-01-01          -9823   # repayments are negative
+#>   2020-02-01          -8941
+#>   2020-03-01          -9107
+#>   2020-04-01          -7234   # ← repayments also fell in lockdown
+```
 
 ---
 
-## Property transactions
-
-`get_property_transactions()` returns monthly counts of property transactions in England, Scotland, Wales, Northern Ireland, and the UK total. Data runs from April 2005.
-
-Transactions are derived from SDLT returns (England and Northern Ireland), Land and Buildings Transaction Tax returns (Scotland), and Land Transaction Tax returns (Wales). They cover all residential and non-residential transactions with a value above £40,000.
+### `get_fuel_duties()` — monthly hydrocarbon oil duty
 
 ```r
-# UK residential transactions, last 12 months
-recent <- get_property_transactions(
-  type   = "residential",
-  nation = "uk",
-  start  = "2024-01"
+# Total fuel duty since 2010 — a slow structural decline
+fuel <- get_fuel_duties(fuel = "total", start = "2010-01")
+
+# Aggregate to annual
+fuel$year <- format(fuel$date, "%Y")
+annual <- aggregate(receipts_gbp_m ~ year, data = fuel, FUN = sum)
+tail(annual, 6)
+#>   year receipts_gbp_m
+#>   2019          27832
+#>   2020          22145   # ← COVID lockdowns, far less driving
+#>   2021          24917
+#>   2022          24601
+#>   2023          23884
+#>   2024          23012
+```
+
+---
+
+### `get_tobacco_duties()` — monthly tobacco duty by product
+
+```r
+# Cigarette vs hand-rolling tobacco duty since 2015
+tobacco <- get_tobacco_duties(
+  product = c("cigarettes", "hand_rolling"),
+  start   = "2015-01"
 )
-head(recent[, c("date", "transactions")], 6)
+
+# Annual totals: hand-rolling has grown as cigarettes decline
+tobacco$year <- format(tobacco$date, "%Y")
+agg <- aggregate(receipts_gbp_m ~ year + product, data = tobacco, FUN = sum)
+agg[agg$year == "2024", ]
+#>   year      product receipts_gbp_m
+#>   2024  cigarettes           6941
+#>   2024 hand_rolling          1298
+```
+
+---
+
+### `get_stamp_duty()` — annual stamp duty receipts
+
+```r
+# All stamp duty types since 2010
+sd <- get_stamp_duty()
+sd[sd$tax_year %in% c("2019-20", "2020-21", "2021-22", "2022-23", "2023-24") &
+   sd$type == "sdlt_total", c("tax_year", "receipts_gbp_m")]
+#>   tax_year receipts_gbp_m
+#>    2019-20          11689
+#>    2020-21           8670   # ← SDLT holiday (less tax paid on property)
+#>    2021-22          15312   # ← holiday tapering off, boom in transactions
+#>    2022-23          15381
+#>    2023-24          11628   # ← higher rates cooling the market
+```
+
+---
+
+### `get_corporation_tax()` — annual CT receipts by levy type
+
+```r
+# CT receipts breakdown: onshore vs offshore vs surcharges
+ct <- get_corporation_tax()
+ct[ct$tax_year == "2024-25", c("type", "receipts_gbp_m")]
+#>                             type receipts_gbp_m
+#>                  all_corporate_taxes         94765
+#>                         bank_levy            1520
+#>                     bank_surcharge           2891
+#>          electricity_generators_levy           340
+#>             energy_profits_levy          2645
+#>                        offshore_ct           3210
+#>                         onshore_ct          81440
+#>                             rpdt            415
+#>                         total_ct          88095
+```
+
+---
+
+### `get_rd_credits()` — R&D tax credit claims and cost
+
+```r
+# Cost of R&D tax credits by scheme — SME vs RDEC
+rd <- get_rd_credits(measure = "amount_gbp_m")
+rd[rd$tax_year %in% c("2019-20", "2020-21", "2021-22", "2022-23", "2023-24"), ]
+#>   tax_year scheme description         measure  value
+#>    2019-20    sme SME R&D Relief  amount_gbp_m   4385
+#>    2020-21    sme SME R&D Relief  amount_gbp_m   4690
+#>    2021-22    sme SME R&D Relief  amount_gbp_m   4620
+#>    2022-23    sme SME R&D Relief  amount_gbp_m   4440
+#>    2023-24    sme SME R&D Relief  amount_gbp_m   3145   # ← reform impact
+#>    2019-20   rdec RDEC            amount_gbp_m   2515
+#>    ...
+```
+
+---
+
+### `get_tax_gap()` — tax gap estimates
+
+```r
+# Full tax gap breakdown for the most recent year
+gap <- get_tax_gap()
+
+# Largest gaps by absolute value
+gap_sorted <- gap[order(-gap$gap_gbp_bn), c("tax", "component", "gap_gbp_bn", "uncertainty")]
+head(gap_sorted, 6)
+#>                               tax                  component gap_gbp_bn uncertainty
+#>                    Corporation Tax            Small businesses       14.7      Medium
+#>  Income Tax, NICs, Capital Gains Tax  Business taxpayers (SA)        5.8      Medium
+#>                                  VAT                Total VAT        8.9      Medium
+#>                    Corporation Tax          Total Corporation Tax   18.6         NA
+#>  Income Tax, NICs, Capital Gains Tax    Total Income Tax, NICs...  14.4         NA
+#>                       Excise duty           Total excise duty        3.1         NA
+```
+
+---
+
+### `get_property_transactions()` — monthly property transaction counts
+
+```r
+# Residential transactions in England: boom and bust around SDLT holiday
+sdlt <- get_property_transactions(
+  type   = "residential",
+  nation = "england",
+  start  = "2021-01",
+  end    = "2022-06"
+)
+sdlt[sdlt$date %in% as.Date(c("2021-03-01", "2021-06-01", "2021-10-01")),
+     c("date", "transactions")]
 #>         date transactions
-#>   2024-01-01        72310
-#>   2024-02-01        81940
-#>   2024-03-01        97880
-#>   2024-04-01        85660
-#>   2024-05-01        84200
-#>   2024-06-01        87110
+#>   2021-03-01       147390   # ← rush before first deadline
+#>   2021-06-01       192510   # ← rush before extended deadline
+#>   2021-10-01        78200   # ← holiday ends, volumes normalise
+```
+
+---
+
+### `clear_cache()` — manage local cache
+
+```r
+# Remove files older than 30 days
+clear_cache(max_age_days = 30)
+
+# Remove everything
+clear_cache()
 ```
 
 ---

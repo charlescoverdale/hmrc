@@ -67,6 +67,7 @@ remotes::install_github("charlescoverdale/hmrc")
 | `get_stamp_duty()` | Annual stamp duty receipts by type (SDLT on property, SDRT on shares, stamp duty on documents) | 2003-04 – present |
 | `get_rd_credits()` | Annual R&D tax credit claims and cost by scheme (SME R&D Relief and RDEC) | 2000-01 – present |
 | `get_tax_gap()` | Cross-sectional tax gap estimates by tax type, taxpayer group, and behaviour component | Most recent year |
+| `get_income_tax_stats()` | Annual Income Tax liabilities by income range — taxpayer counts, total income, tax liabilities, and average rates | 2022-23 – present |
 | `get_property_transactions()` | Monthly residential and non-residential property transactions by UK nation | Apr 2005 – present |
 | `clear_cache()` | Delete locally cached HMRC files | — |
 
@@ -241,6 +242,29 @@ head(gap_sorted, 6)
 #>                    Corporation Tax          Total Corporation Tax   18.6         NA
 #>  Income Tax, NICs, Capital Gains Tax    Total Income Tax, NICs...  14.4         NA
 #>                       Excise duty           Total excise duty        3.1         NA
+```
+
+---
+
+### `get_income_tax_stats()` — Income Tax liabilities by income range
+
+```r
+# Who pays Income Tax? Taxpayer counts and liabilities by income band
+it <- get_income_tax_stats(tax_year = "2023-24")
+it[, c("income_range", "taxpayers_thousands", "tax_liability_gbp_m", "average_rate_pct")]
+#>   income_range taxpayers_thousands tax_liability_gbp_m average_rate_pct
+#>          12570                2960                 627              1.5
+#>          15000                5490                4640              4.9
+#>          20000               10200               22500              9.0
+#>          30000               10600               50200             12.4
+#>          50000                5800               71300             18.7
+#>         100000                 922               32000             29.1
+#>         150000                 315               18400             34.0
+#>         200000                 312               33900             38.0
+#>         500000                  54               14700             40.6
+#>        1000000                  18                9840             40.7
+#>       2000000+                   9               19400             39.6
+#>     All Ranges               36600              277000             18.1
 ```
 
 ---

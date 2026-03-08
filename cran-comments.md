@@ -1,11 +1,8 @@
-# CRAN submission comments — hmrc 0.2.0
+# CRAN submission comments — hmrc 0.3.0
 
 ## Test environments
 
 * macOS Sequoia 15.6.1, R 4.5.2 (aarch64-apple-darwin20) — local
-* Windows Server, R-release — win-builder
-* Windows Server, R-devel — win-builder (FTP outage at time of submission;
-  re-submitted when server recovered)
 
 ## R CMD check results
 
@@ -13,7 +10,7 @@
 
 ## Downstream dependencies
 
-None — this is a new package with no reverse dependencies.
+None — no reverse dependencies.
 
 ## Notes for CRAN reviewers
 

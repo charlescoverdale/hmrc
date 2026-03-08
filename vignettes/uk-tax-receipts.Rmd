@@ -153,6 +153,17 @@ gap[order(-gap$gap_gbp_bn),
     c("tax", "component", "gap_gbp_bn", "uncertainty")]
 ```
 
+## Income Tax liabilities
+
+`get_income_tax_stats()` returns annual Income Tax liabilities by income range
+(HMRC Table 2.5), including taxpayer counts, total income, tax liabilities, and
+average tax rates.
+
+```{r income-tax}
+it <- get_income_tax_stats(tax_year = "2023-24")
+it[, c("income_range", "taxpayers_thousands", "tax_liability_gbp_m", "average_rate_pct")]
+```
+
 ## Property transactions
 
 `get_property_transactions()` returns monthly counts of residential and

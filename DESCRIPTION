@@ -2,7 +2,7 @@ Package: hmrc
 Title: Download and Tidy HMRC Statistical Data
 Version: 0.3.0
 Authors@R:
-    person("Charles", "Coverdale", , "charlescoverdale@gmail.com",
+    person("Charles", "Coverdale", , "charlesfcoverdale@gmail.com",
            role = c("aut", "cre"))
 Description: Provides functions to download, parse, and tidy statistical
     data published by HM Revenue and Customs (HMRC) on GOV.UK. Covers

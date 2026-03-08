@@ -36,7 +36,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Charles Coverdale \email{charlescoverdale@gmail.com}
+\strong{Maintainer}: Charles Coverdale \email{charlesfcoverdale@gmail.com}
 
 }
 \keyword{internal}

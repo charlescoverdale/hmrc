@@ -29,7 +29,7 @@
 #' are provisional and subject to revision as late claims are processed.
 #'
 #' @source
-#' <https://www.gov.uk/government/statistics/corporate-tax-research-and-development-tax-credits>
+#' <https://www.gov.uk/government/statistics/corporate-tax-research-and-development-tax-credit>
 #'
 #' @examples
 #' \donttest{
@@ -84,8 +84,10 @@ get_rd_credits <- function(scheme  = NULL,
 # -- Internal parser -----------------------------------------------------------
 
 parse_rd_credits_table <- function(path) {
-  # Sheet RD1: number of claims by year (col 7 = SME Total, col 11 = LC & RDEC Total, col 13 = grand total)
-  # Sheet RD2: cost in £m (col 5 = SME Total, col 9 = LC & RDEC Total, col 11 = grand total)
+  # Sheet RD1: number of claims by year
+  #   col 7 = SME Total, col 11 = LC & RDEC Total, col 13 = grand total
+  # Sheet RD2: cost in GBP m
+  #   col 5 = SME Total, col 9 = LC & RDEC Total, col 11 = grand total
   # Both sheets: row 5 = headers, rows 6+ = data
 
   read_sheet <- function(sheet, sme_col, rdec_col, total_col) {

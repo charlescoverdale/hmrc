@@ -79,7 +79,9 @@ parse_fuel_table <- function(path) {
     }
   }
   if (is.na(monthly_start)) {
-    cli::cli_abort("Could not locate monthly data in hydrocarbon oils bulletin. Please file an issue.")
+    cli::cli_abort(
+      "Could not locate monthly data in hydrocarbon oils bulletin. Please file an issue."
+    )
   }
 
   data_rows <- raw[monthly_start:nrow(raw), ]

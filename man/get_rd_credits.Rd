@@ -4,7 +4,7 @@
 \alias{get_rd_credits}
 \title{Download HMRC R&D tax credit statistics}
 \source{
-\url{https://www.gov.uk/government/statistics/corporate-tax-research-and-development-tax-credits}
+\url{https://www.gov.uk/government/statistics/corporate-tax-research-and-development-tax-credit}
 }
 \usage{
 get_rd_credits(scheme = NULL, measure = NULL, cache = TRUE)

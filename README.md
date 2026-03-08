@@ -1,5 +1,9 @@
 # hmrc
 
+[![R-CMD-check](https://github.com/charlescoverdale/hmrc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/charlescoverdale/hmrc/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/hmrc)](https://CRAN.R-project.org/package=hmrc)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+
 An R package for accessing statistical data published by [HM Revenue and Customs](https://www.gov.uk/government/organisations/hm-revenue-customs).
 
 ## What is HMRC?

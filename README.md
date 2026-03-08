@@ -54,41 +54,19 @@ remotes::install_github("charlescoverdale/hmrc")
 
 ## Functions
 
-### Tax receipts
-
-| Function | Returns |
-|---|---|
-| `get_tax_receipts()` | Monthly cash receipts by tax head, April 2016 to present (£m) |
-| `list_tax_heads()` | Data frame of all available tax head identifiers — no download needed |
-
-### Excise duties and VAT
-
-| Function | Returns |
-|---|---|
-| `get_vat()` | Monthly VAT receipts by component (payments, repayments, import, home), April 1973 to present |
-| `get_fuel_duties()` | Monthly hydrocarbon oil duty receipts by fuel type (petrol, diesel, other), January 1990 to present |
-| `get_tobacco_duties()` | Monthly tobacco duty receipts by product (cigarettes, cigars, hand-rolling, other), January 1991 to present |
-
-### Corporate taxes
-
-| Function | Returns |
-|---|---|
-| `get_corporation_tax()` | Annual Corporation Tax receipts by levy type (onshore, offshore, bank levy, RPDT, etc.), 2019-20 to present |
-| `get_stamp_duty()` | Annual stamp duty receipts by type (SDLT on property, SDRT on shares, stamp duty on documents), 2003-04 to present |
-| `get_rd_credits()` | Annual R&D tax credit statistics by scheme (SME, RDEC) — number of claims and cost (£m), 2000-01 to present |
-| `get_tax_gap()` | Cross-sectional tax gap estimates by tax type, taxpayer group, and behaviour component for the most recent year |
-
-### Property transactions
-
-| Function | Returns |
-|---|---|
-| `get_property_transactions()` | Monthly residential and non-residential property transactions by UK nation, April 2005 to present |
-
-### Cache management
-
-| Function | What it does |
-|---|---|
-| `clear_cache()` | Deletes locally cached HMRC files |
+| Function | Description | Time series |
+|---|---|---|
+| `get_tax_receipts()` | Monthly cash receipts for 41 tax heads (Income Tax, NICs, VAT, CT, duties, and more) | Apr 2016 – present |
+| `list_tax_heads()` | Catalogue of all tax head identifiers — no download needed | — |
+| `get_vat()` | Monthly VAT receipts broken down into payments, repayments, import VAT, and home VAT | Apr 1973 – present |
+| `get_fuel_duties()` | Monthly hydrocarbon oil duty receipts by fuel type (petrol, diesel, other) | Jan 1990 – present |
+| `get_tobacco_duties()` | Monthly tobacco duty receipts by product (cigarettes, cigars, hand-rolling, other) | Jan 1991 – present |
+| `get_corporation_tax()` | Annual Corporation Tax receipts by levy (onshore, offshore, bank levy, RPDT, EGL, EPL) | 2019-20 – present |
+| `get_stamp_duty()` | Annual stamp duty receipts by type (SDLT on property, SDRT on shares, stamp duty on documents) | 2003-04 – present |
+| `get_rd_credits()` | Annual R&D tax credit claims and cost by scheme (SME R&D Relief and RDEC) | 2000-01 – present |
+| `get_tax_gap()` | Cross-sectional tax gap estimates by tax type, taxpayer group, and behaviour component | Most recent year |
+| `get_property_transactions()` | Monthly residential and non-residential property transactions by UK nation | Apr 2005 – present |
+| `clear_cache()` | Delete locally cached HMRC files | — |
 
 ---
 

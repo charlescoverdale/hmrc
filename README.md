@@ -1,6 +1,6 @@
 # hmrc
 
-[![R-CMD-check](https://github.com/charlescoverdale/hmrc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/charlescoverdale/hmrc/actions/workflows/R-CMD-check.yaml) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/charlescoverdale/hmrc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/charlescoverdale/hmrc/actions/workflows/R-CMD-check.yaml) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An R package for accessing statistical data published by [HM Revenue and Customs](https://www.gov.uk/government/organisations/hm-revenue-customs).
 

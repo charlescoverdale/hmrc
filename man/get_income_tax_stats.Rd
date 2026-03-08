@@ -27,7 +27,8 @@ pounds. \code{NA} for the \code{"All Ranges"} row.}
 \item{total_income_gbp_m}{Numeric. Total income (millions of pounds).}
 \item{tax_liability_gbp_m}{Numeric. Total Income Tax liability
 (millions of pounds).}
-\item{average_rate_pct}{Numeric. Average rate of Income Tax (\\%).}
+\item{average_rate_pct}{Numeric. Average rate of Income Tax
+(percent).}
 \item{average_tax_gbp}{Numeric. Average amount of Income Tax per
 taxpayer (pounds).}
 }

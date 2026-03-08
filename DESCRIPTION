@@ -1,0 +1,34 @@
+Package: hmrc
+Title: Download and Tidy HMRC Statistical Data
+Version: 1.0.0
+Authors@R:
+    person("Charles", "Coverdale", , "charlescoverdale@gmail.com",
+           role = c("aut", "cre"))
+Description: Provides functions to download, parse, and tidy statistical
+    data published by HM Revenue and Customs (HMRC) on GOV.UK, including
+    tax receipts, National Insurance contributions, and property
+    transactions. File URLs are resolved at runtime via the GOV.UK
+    Content API <https://www.gov.uk/api/content>, ensuring data is always
+    current. Files are cached locally between sessions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+    cli (>= 3.6.0),
+    httr2 (>= 1.0.0),
+    readODS (>= 2.3.0),
+    tools
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    ggplot2,
+    scales
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://github.com/charlescoverdale/hmrc
+BugReports: https://github.com/charlescoverdale/hmrc/issues
+Depends:
+    R (>= 4.1.0)
+LazyData: true

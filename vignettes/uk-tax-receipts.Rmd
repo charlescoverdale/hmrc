@@ -1,0 +1,110 @@
+---
+title: "UK Tax Receipts with hmrc"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{UK Tax Receipts with hmrc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+The `hmrc` package provides tidy access to statistical data published by HM Revenue
+and Customs (HMRC) on GOV.UK. This vignette demonstrates the two core functions
+covering monthly tax receipts and property transactions.
+
+## Tax receipts
+
+`get_tax_receipts()` downloads the monthly HMRC Tax Receipts and National Insurance
+Contributions bulletin. The bulletin covers all major UK taxes and duties from
+April 2016 to the most recent published month.
+
+```{r receipts-basic}
+library(hmrc)
+
+# All tax heads — returns ~41 series
+receipts <- get_tax_receipts()
+head(receipts)
+```
+
+Filter to specific tax heads using the `tax` argument. Use `list_tax_heads()` to
+see all available identifiers:
+
+```{r list-heads}
+list_tax_heads()
+```
+
+```{r receipts-filter}
+# The three largest revenue streams
+big_three <- get_tax_receipts(
+  tax   = c("income_tax", "vat", "nics_total"),
+  start = "2020-01"
+)
+```
+
+```{r receipts-plot, fig.width=7, fig.height=4}
+library(ggplot2)
+
+ggplot(big_three, aes(x = date, y = receipts_gbp_m / 1000, colour = description)) +
+  geom_line(linewidth = 0.8) +
+  scale_y_continuous(labels = scales::label_comma(suffix = "bn")) +
+  labs(
+    title  = "UK monthly tax receipts",
+    x      = NULL,
+    y      = "GBP billions",
+    colour = NULL,
+    caption = "Source: HMRC Tax Receipts and NICs bulletin"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "bottom")
+```
+
+## Property transactions
+
+`get_property_transactions()` downloads the monthly property transaction counts
+for England, Scotland, Wales, Northern Ireland, and the UK total. Data runs from
+April 2005.
+
+```{r property-basic}
+# UK residential transactions since 2018
+prop <- get_property_transactions(
+  type   = "residential",
+  nation = "uk",
+  start  = "2018-01"
+)
+head(prop)
+```
+
+```{r property-plot, fig.width=7, fig.height=4}
+ggplot(prop, aes(x = date, y = transactions / 1000)) +
+  geom_line(colour = "#3B82F6", linewidth = 0.8) +
+  geom_smooth(method = "loess", se = FALSE, colour = "#94A3B8",
+              linewidth = 0.6, linetype = "dashed") +
+  scale_y_continuous(labels = scales::label_comma(suffix = "k")) +
+  labs(
+    title   = "UK residential property transactions",
+    x       = NULL,
+    y       = "Transactions (thousands)",
+    caption = "Source: HMRC Monthly Property Transactions bulletin"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+## Caching
+
+All downloads are cached locally. The cache persists between R sessions so
+subsequent calls are instant. Use `clear_cache()` to delete cached files:
+
+```{r cache}
+# Remove files older than 30 days
+clear_cache(max_age_days = 30)
+
+# Remove everything
+clear_cache()
+```

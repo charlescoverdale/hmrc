@@ -1,6 +1,6 @@
 Package: hmrc
 Title: Download and Tidy HMRC Statistical Data
-Version: 1.0.0
+Version: 0.1.0
 Authors@R:
     person("Charles", "Coverdale", , "charlescoverdale@gmail.com",
            role = c("aut", "cre"))

@@ -1,6 +1,6 @@
 Package: hmrc
 Title: Download and Tidy HMRC Statistical Data
-Version: 0.2.0
+Version: 0.3.0
 Authors@R:
     person("Charles", "Coverdale", , "charlescoverdale@gmail.com",
            role = c("aut", "cre"))
@@ -9,8 +9,8 @@ Description: Provides functions to download, parse, and tidy statistical
     monthly tax receipts (41 tax heads from 2016), VAT (from 1973), fuel
     duties (from 1990), tobacco duties (from 1991), annual Corporation Tax
     receipts, stamp duty, research and development tax credit statistics
-    (from 2000), tax gap estimates, and monthly property transaction
-    counts. File URLs are resolved at runtime via the GOV.UK Content API
+    (from 2000), tax gap estimates, Income Tax liabilities by income
+    range, and monthly property transaction counts. File URLs are resolved at runtime via the GOV.UK Content API
     <https://www.gov.uk/api/content>, so data is always current without
     hardcoded URLs. Files are cached locally between sessions.
 License: MIT + file LICENSE

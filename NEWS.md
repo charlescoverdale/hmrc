@@ -1,3 +1,9 @@
+# hmrc 0.3.0
+
+* Added `get_income_tax_stats()`: annual Income Tax liabilities by income range,
+  including taxpayer counts, total income, tax liabilities, and average tax rates
+  (Table 2.5).
+
 # hmrc 0.2.0
 
 * Added `get_vat()`: monthly VAT receipts by component (payments, repayments,

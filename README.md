@@ -61,6 +61,23 @@ remotes::install_github("charlescoverdale/hmrc")
 | `get_tax_receipts()` | Monthly cash receipts by tax head, April 2016 to present (£m) |
 | `list_tax_heads()` | Data frame of all available tax head identifiers — no download needed |
 
+### Excise duties and VAT
+
+| Function | Returns |
+|---|---|
+| `get_vat()` | Monthly VAT receipts by component (payments, repayments, import, home), April 1973 to present |
+| `get_fuel_duties()` | Monthly hydrocarbon oil duty receipts by fuel type (petrol, diesel, other), January 1990 to present |
+| `get_tobacco_duties()` | Monthly tobacco duty receipts by product (cigarettes, cigars, hand-rolling, other), January 1991 to present |
+
+### Corporate taxes
+
+| Function | Returns |
+|---|---|
+| `get_corporation_tax()` | Annual Corporation Tax receipts by levy type (onshore, offshore, bank levy, RPDT, etc.), 2019-20 to present |
+| `get_stamp_duty()` | Annual stamp duty receipts by type (SDLT on property, SDRT on shares, stamp duty on documents), 2003-04 to present |
+| `get_rd_credits()` | Annual R&D tax credit statistics by scheme (SME, RDEC) — number of claims and cost (£m), 2000-01 to present |
+| `get_tax_gap()` | Cross-sectional tax gap estimates by tax type, taxpayer group, and behaviour component for the most recent year |
+
 ### Property transactions
 
 | Function | Returns |

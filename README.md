@@ -43,13 +43,10 @@ get_tax_receipts()
 
 ```r
 install.packages("hmrc")
-```
 
-Or install the development version from GitHub:
-
-```r
-# install.packages("remotes")
-remotes::install_github("charlescoverdale/hmrc")
+# Or install the development version from GitHub
+# install.packages("devtools")
+devtools::install_github("charlescoverdale/hmrc")
 ```
 
 ---

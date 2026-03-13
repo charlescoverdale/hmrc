@@ -30,6 +30,7 @@ See \url{https://www.gov.uk/government/organisations/hm-revenue-customs/about/st
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://charlescoverdale.github.io/hmrc/}
   \item \url{https://github.com/charlescoverdale/hmrc}
   \item Report bugs at \url{https://github.com/charlescoverdale/hmrc/issues}
 }

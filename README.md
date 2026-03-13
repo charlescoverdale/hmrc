@@ -1,6 +1,6 @@
 # hmrc
 
-[![CRAN status](https://www.r-pkg.org/badges/version/hmrc)](https://CRAN.R-project.org/package=hmrc) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/hmrc)](https://cran.r-project.org/package=hmrc) [![R-CMD-check](https://github.com/charlescoverdale/hmrc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/charlescoverdale/hmrc/actions/workflows/R-CMD-check.yaml) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![CRAN status](https://www.r-pkg.org/badges/version/hmrc)](https://CRAN.R-project.org/package=hmrc) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/hmrc)](https://cran.r-project.org/package=hmrc) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An R package for accessing statistical data published by [HM Revenue and Customs](https://www.gov.uk/government/organisations/hm-revenue-customs).
 

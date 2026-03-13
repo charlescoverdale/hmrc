@@ -336,6 +336,9 @@ This package is part of a family of R packages for UK economic and fiscal data. 
 | [`ons`](https://github.com/charlescoverdale/ons) | ONS data (GDP, inflation, unemployment, wages, trade, house prices, population) |
 | [`boe`](https://github.com/charlescoverdale/boe) | Bank of England data (Bank Rate, SONIA, gilt yields, exchange rates, mortgage rates) |
 | [`obr`](https://github.com/charlescoverdale/obr) | OBR fiscal forecasts and the Public Finances Databank |
+| [`readecb`](https://github.com/charlescoverdale/readecb) | European Central Bank data (policy rates, HICP, exchange rates, yield curves) |
+| [`readoecd`](https://github.com/charlescoverdale/readoecd) | OECD data (GDP, unemployment, inflation, trade across 38 member countries) |
+| [`fred`](https://github.com/charlescoverdale/fred) | US Federal Reserve (FRED) data (800,000+ economic time series) |
 | [`inflateR`](https://github.com/charlescoverdale/inflateR) | Adjust values for inflation using CPI or GDP deflator data |
 
 ---
@@ -343,3 +346,9 @@ This package is part of a family of R packages for UK economic and fiscal data. 
 ## Issues
 
 Please report bugs or requests at <https://github.com/charlescoverdale/hmrc/issues>.
+
+---
+
+## Keywords
+
+HMRC, UK tax data, tax revenue, VAT, income tax, corporation tax, stamp duty, capital gains tax, inheritance tax, alcohol duty, tobacco duty, fuel duty, insurance premium tax, R package, UK government data

@@ -1,0 +1,46 @@
+url: https://charlescoverdale.github.io/hmrc/
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, github]
+  components:
+    github:
+      icon: fa-github
+      href: https://github.com/charlescoverdale/hmrc
+
+reference:
+  - title: Tax Receipts
+    desc: Monthly and annual tax revenue data
+    contents:
+      - get_tax_receipts
+      - list_tax_heads
+      - get_vat
+      - get_corporation_tax
+
+  - title: Duties
+    desc: Monthly excise duty receipts
+    contents:
+      - get_fuel_duties
+      - get_tobacco_duties
+
+  - title: Property and Stamp Duty
+    desc: Stamp duty receipts and property transactions
+    contents:
+      - get_stamp_duty
+      - get_property_transactions
+
+  - title: Tax Policy and Analysis
+    desc: R&D credits, tax gap estimates, and income tax statistics
+    contents:
+      - get_rd_credits
+      - get_tax_gap
+      - get_income_tax_stats
+
+  - title: Utilities
+    desc: Cache management
+    contents:
+      - clear_cache

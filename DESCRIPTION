@@ -32,7 +32,8 @@ Suggests:
     scales
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-URL: https://github.com/charlescoverdale/hmrc
+URL: https://charlescoverdale.github.io/hmrc/,
+    https://github.com/charlescoverdale/hmrc
 BugReports: https://github.com/charlescoverdale/hmrc/issues
 Depends:
     R (>= 4.1.0)

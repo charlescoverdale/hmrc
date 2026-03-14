@@ -44,6 +44,7 @@
 #' get_tax_gap(tax = "VAT")
 #' }
 #'
+#' @family data access
 #' @export
 get_tax_gap <- function(tax   = NULL,
                         cache = TRUE) {

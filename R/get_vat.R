@@ -39,6 +39,7 @@
 #' get_vat(start = "2020-01")
 #' }
 #'
+#' @family tax receipts
 #' @export
 get_vat <- function(measure = NULL,
                     start   = NULL,

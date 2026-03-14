@@ -29,3 +29,9 @@ clear_cache(max_age_days = 30)
 }
 
 }
+\seealso{
+Other data access: 
+\code{\link{get_tax_gap}()},
+\code{\link{list_tax_heads}()}
+}
+\concept{data access}

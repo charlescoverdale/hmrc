@@ -32,6 +32,7 @@
 #' get_tobacco_duties(product = "cigarettes")
 #' }
 #'
+#' @family duties
 #' @export
 get_tobacco_duties <- function(product = NULL,
                                start   = NULL,

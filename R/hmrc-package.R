@@ -16,6 +16,16 @@
 #' See <https://www.gov.uk/government/organisations/hm-revenue-customs/about/statistics>.
 #'
 #' @keywords internal
+#' @concept HMRC
+#' @concept UK tax
+#' @concept tax revenue
+#' @concept VAT
+#' @concept income tax
+#' @concept corporation tax
+#' @concept stamp duty
+#' @concept fuel duty
+#' @concept tobacco duty
+#' @concept government revenue
 "_PACKAGE"
 
 utils::globalVariables("tax_heads")

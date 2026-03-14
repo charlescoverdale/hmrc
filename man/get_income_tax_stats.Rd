@@ -53,3 +53,9 @@ get_income_tax_stats(tax_year = "2023-24")
 }
 
 }
+\seealso{
+Other tax receipts: 
+\code{\link{get_tax_receipts}()},
+\code{\link{get_vat}()}
+}
+\concept{tax receipts}

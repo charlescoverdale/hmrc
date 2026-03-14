@@ -59,3 +59,8 @@ get_property_transactions(type = "residential", nation = "england",
 }
 
 }
+\seealso{
+Other property: 
+\code{\link{get_stamp_duty}()}
+}
+\concept{property}

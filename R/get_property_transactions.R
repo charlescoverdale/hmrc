@@ -39,6 +39,7 @@
 #'                           start = "2020-01")
 #' }
 #'
+#' @family property
 #' @export
 get_property_transactions <- function(type   = c("all", "residential", "non_residential"),
                                       nation = NULL,

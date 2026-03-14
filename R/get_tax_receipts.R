@@ -41,6 +41,7 @@
 #' get_tax_receipts(tax = "vat", start = "2019-01", end = "2024-12")
 #' }
 #'
+#' @family tax receipts
 #' @export
 get_tax_receipts <- function(tax = NULL, start = NULL, end = NULL, cache = TRUE) {
 

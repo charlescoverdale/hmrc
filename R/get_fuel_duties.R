@@ -30,6 +30,7 @@
 #' get_fuel_duties()
 #' }
 #'
+#' @family duties
 #' @export
 get_fuel_duties <- function(fuel  = NULL,
                             start = NULL,

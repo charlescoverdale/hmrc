@@ -55,3 +55,9 @@ get_tax_gap(tax = "VAT")
 }
 
 }
+\seealso{
+Other data access: 
+\code{\link{clear_cache}()},
+\code{\link{list_tax_heads}()}
+}
+\concept{data access}

@@ -44,3 +44,8 @@ get_stamp_duty(type = "sdlt_total")
 }
 
 }
+\seealso{
+Other property: 
+\code{\link{get_property_transactions}()}
+}
+\concept{property}

@@ -40,6 +40,7 @@
 #' get_rd_credits(scheme = "sme", measure = "claims")
 #' }
 #'
+#' @family corporate
 #' @export
 get_rd_credits <- function(scheme  = NULL,
                             measure = NULL,

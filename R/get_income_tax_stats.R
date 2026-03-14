@@ -42,6 +42,7 @@
 #' get_income_tax_stats(tax_year = "2023-24")
 #' }
 #'
+#' @family tax receipts
 #' @export
 get_income_tax_stats <- function(tax_year = NULL,
                                  cache    = TRUE) {

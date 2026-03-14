@@ -40,4 +40,14 @@ Useful links:
 \strong{Maintainer}: Charles Coverdale \email{charlesfcoverdale@gmail.com}
 
 }
+\concept{HMRC}
+\concept{UK tax}
+\concept{VAT}
+\concept{corporation tax}
+\concept{fuel duty}
+\concept{government revenue}
+\concept{income tax}
+\concept{stamp duty}
+\concept{tax revenue}
+\concept{tobacco duty}
 \keyword{internal}

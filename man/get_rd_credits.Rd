@@ -52,3 +52,8 @@ get_rd_credits(scheme = "sme", measure = "claims")
 }
 
 }
+\seealso{
+Other corporate: 
+\code{\link{get_corporation_tax}()}
+}
+\concept{corporate}

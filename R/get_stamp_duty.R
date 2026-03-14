@@ -33,6 +33,7 @@
 #' get_stamp_duty(type = "sdlt_total")
 #' }
 #'
+#' @family property
 #' @export
 get_stamp_duty <- function(type  = NULL,
                            cache = TRUE) {

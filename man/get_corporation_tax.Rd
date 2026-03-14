@@ -37,3 +37,8 @@ get_corporation_tax()
 }
 
 }
+\seealso{
+Other corporate: 
+\code{\link{get_rd_credits}()}
+}
+\concept{corporate}

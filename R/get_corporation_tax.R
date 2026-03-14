@@ -27,6 +27,7 @@
 #' get_corporation_tax()
 #' }
 #'
+#' @family corporate
 #' @export
 get_corporation_tax <- function(cache = TRUE) {
 

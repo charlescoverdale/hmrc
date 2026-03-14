@@ -52,3 +52,9 @@ get_vat(start = "2020-01")
 }
 
 }
+\seealso{
+Other tax receipts: 
+\code{\link{get_income_tax_stats}()},
+\code{\link{get_tax_receipts}()}
+}
+\concept{tax receipts}

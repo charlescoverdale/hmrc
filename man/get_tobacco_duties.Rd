@@ -45,3 +45,8 @@ get_tobacco_duties(product = "cigarettes")
 }
 
 }
+\seealso{
+Other duties: 
+\code{\link{get_fuel_duties}()}
+}
+\concept{duties}

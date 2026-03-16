@@ -12,11 +12,13 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(hmrc.cache_dir = tempdir())
 #' # Remove all cached files
 #' clear_cache()
 #'
 #' # Remove files older than 30 days
 #' clear_cache(max_age_days = 30)
+#' options(op)
 #' }
 #'
 #' @family data access
@@ -28,7 +30,7 @@ clear_cache <- function(max_age_days = NULL) {
     }
   }
 
-  cache_dir <- tools::R_user_dir("hmrc", "cache")
+  cache_dir <- hmrc_cache_dir()
 
   if (!dir.exists(cache_dir)) {
     cli::cli_inform("No cache directory found \u2014 nothing to clear.")

@@ -46,10 +46,12 @@ sample sizes are returned as \code{NA}.
 }
 \examples{
 \donttest{
+op <- options(hmrc.cache_dir = tempdir())
 get_income_tax_stats()
 
 # Single tax year
 get_income_tax_stats(tax_year = "2023-24")
+options(op)
 }
 
 }

@@ -24,7 +24,9 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(hmrc.cache_dir = tempdir())
 #' get_corporation_tax()
+#' options(op)
 #' }
 #'
 #' @family corporate

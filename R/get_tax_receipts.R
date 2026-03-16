@@ -28,6 +28,7 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(hmrc.cache_dir = tempdir())
 #' # All tax heads
 #' get_tax_receipts()
 #'
@@ -39,6 +40,7 @@
 #'
 #' # VAT in a specific window
 #' get_tax_receipts(tax = "vat", start = "2019-01", end = "2024-12")
+#' options(op)
 #' }
 #'
 #' @family tax receipts

@@ -64,6 +64,12 @@ resolve_govuk_url <- function(slug, filename_pattern) {
   matches[[1]]$url
 }
 
+#' Get the cache directory, respecting the hmrc.cache_dir option
+#' @noRd
+hmrc_cache_dir <- function() {
+  getOption("hmrc.cache_dir", default = tools::R_user_dir("hmrc", "cache"))
+}
+
 #' Download a file with local caching
 #'
 #' @param url URL to download
@@ -71,7 +77,7 @@ resolve_govuk_url <- function(slug, filename_pattern) {
 #' @return Path to the local (cached) file
 #' @noRd
 download_cached <- function(url, cache = TRUE) {
-  cache_dir  <- tools::R_user_dir("hmrc", "cache")
+  cache_dir  <- hmrc_cache_dir()
   # Use a hash of the URL as the cache filename, preserving extension
   ext        <- tools::file_ext(url)
   ext        <- if (nzchar(ext)) paste0(".", ext) else ""

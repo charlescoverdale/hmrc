@@ -26,11 +26,13 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(hmrc.cache_dir = tempdir())
 #' # All stamp duty types
 #' get_stamp_duty()
 #'
 #' # SDLT only
 #' get_stamp_duty(type = "sdlt_total")
+#' options(op)
 #' }
 #'
 #' @family property

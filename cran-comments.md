@@ -1,13 +1,14 @@
-# CRAN submission comments — hmrc 0.3.1
+# CRAN submission comments — hmrc 0.3.2
 
 ## Resubmission
 
-This is a resubmission of hmrc 0.3.0. Changes made in response to CRAN
-feedback (Prof Ripley, 2026-03-15):
+This is a resubmission addressing CRAN feedback (Prof Ripley, 2026-03-15).
+Changes since hmrc 0.3.0 (currently on CRAN):
 
 * Examples now cache to `tempdir()` instead of the user's home directory,
   fixing CRAN policy compliance for `\donttest` examples.
 * Cache directory is now configurable via `options(hmrc.cache_dir = ...)`.
+* Removed non-existent pkgdown URL from DESCRIPTION (was returning 404).
 
 ## Test environments
 

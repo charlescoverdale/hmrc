@@ -1,4 +1,13 @@
-# CRAN submission comments — hmrc 0.3.0
+# CRAN submission comments — hmrc 0.3.1
+
+## Resubmission
+
+This is a resubmission of hmrc 0.3.0. Changes made in response to CRAN
+feedback (Prof Ripley, 2026-03-15):
+
+* Examples now cache to `tempdir()` instead of the user's home directory,
+  fixing CRAN policy compliance for `\donttest` examples.
+* Cache directory is now configurable via `options(hmrc.cache_dir = ...)`.
 
 ## Test environments
 
@@ -20,4 +29,5 @@ None — no reverse dependencies.
   Content API (`https://www.gov.uk/api/content`) rather than hardcoded, as the
   underlying asset URLs rotate on each publication cycle.
 * Local caching uses `tools::R_user_dir("hmrc", "cache")` (base R, no
-  additional dependencies).
+  additional dependencies). In examples, caching is redirected to `tempdir()`
+  so that no files are written to the user's home filespace.

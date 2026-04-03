@@ -34,15 +34,24 @@
 get_corporation_tax <- function(cache = TRUE) {
 
   # The CT statistics page URL changes each year (e.g. corporation-tax-statistics-2025)
-  # Use the collection page to find the current publication
-  slug <- "corporation-tax-statistics-2025"
-  url  <- tryCatch(
-    resolve_govuk_url(slug, "Corporation_Tax"),
-    error = function(e) {
-      # Try previous year if current year slug not found
-      resolve_govuk_url("corporation-tax-statistics-2024", "Corporation_Tax")
-    }
-  )
+  # Try years in descending order from current year to find latest publication
+  current_year <- as.integer(format(Sys.Date(), "%Y"))
+  url <- NULL
+  for (yr in seq(current_year, current_year - 3L)) {
+    slug <- paste0("corporation-tax-statistics-", yr)
+    url <- tryCatch(
+      resolve_govuk_url(slug, "Corporation_Tax"),
+      error = function(e) NULL
+    )
+    if (!is.null(url)) break
+  }
+  if (is.null(url)) {
+    cli::cli_abort(c(
+      "Could not find Corporation Tax statistics on GOV.UK.",
+      "i" = "Tried slugs for {current_year} back to {current_year - 3L}.",
+      "i" = "Check {.url https://www.gov.uk/government/collections/analyses-of-corporation-tax-receipts-and-liabilities}"
+    ))
+  }
   path <- download_cached(url, cache = cache)
 
   cli::cli_progress_step("Parsing data")

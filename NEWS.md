@@ -1,3 +1,9 @@
+# hmrc 0.3.3
+
+* `get_corporation_tax()` now dynamically detects the latest publication year
+  instead of using a hardcoded slug. This prevents the function from breaking
+  when HMRC publishes a new annual edition.
+
 # hmrc 0.3.2
 
 * Removed non-existent pkgdown URL from DESCRIPTION.

@@ -77,10 +77,10 @@ op <- options(hmrc.cache_dir = tempdir())
 # All tax heads
 get_tax_receipts()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [514ms]
+#> ✔ Resolving download URL from GOV.UK Content API [128ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [661ms]
+#> ✔ Downloading data file [573ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -131,7 +131,7 @@ get_tax_receipts()
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [359ms]
+#> ✔ Parsing data [401ms]
 #> 
 #>            date                           tax_head
 #> 1    2016-04-01                    aggregates_levy
@@ -14900,10 +14900,10 @@ get_tax_receipts()
 # Income Tax and VAT only
 get_tax_receipts(tax = c("income_tax", "vat"))
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [19ms]
+#> ✔ Resolving download URL from GOV.UK Content API [16ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [5ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -14954,7 +14954,7 @@ get_tax_receipts(tax = c("income_tax", "vat"))
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [362ms]
+#> ✔ Parsing data [410ms]
 #> 
 #>            date   tax_head                           description receipts_gbp_m
 #> 2401 2016-04-01 income_tax Income Tax (PAYE and Self Assessment)          16126
@@ -15201,10 +15201,10 @@ get_tax_receipts(tax = c("income_tax", "vat"))
 # Since April 2020
 get_tax_receipts(start = "2020-04")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [22ms]
+#> ✔ Resolving download URL from GOV.UK Content API [13ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [5ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -15255,7 +15255,7 @@ get_tax_receipts(start = "2020-04")
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [367ms]
+#> ✔ Parsing data [387ms]
 #> 
 #>            date                           tax_head
 #> 49   2020-04-01                    aggregates_levy
@@ -24120,10 +24120,10 @@ get_tax_receipts(start = "2020-04")
 # VAT in a specific window
 get_tax_receipts(tax = "vat", start = "2019-01", end = "2024-12")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [19ms]
+#> ✔ Resolving download URL from GOV.UK Content API [14ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [5ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -24174,7 +24174,7 @@ get_tax_receipts(tax = "vat", start = "2019-01", end = "2024-12")
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [363ms]
+#> ✔ Parsing data [382ms]
 #> 
 #>            date tax_head     description receipts_gbp_m
 #> 4714 2019-01-01      vat Value Added Tax          13701

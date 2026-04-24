@@ -66,10 +66,10 @@ op <- options(hmrc.cache_dir = tempdir())
 # Total fuel duty receipts since 2010
 get_fuel_duties(fuel = "total", start = "2010-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [110ms]
+#> ✔ Resolving download URL from GOV.UK Content API [126ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [830ms]
+#> ✔ Downloading data file [926ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -90,7 +90,7 @@ get_fuel_duties(fuel = "total", start = "2010-01")
 #> • `` -> `...15`
 #> • `` -> `...16`
 #> • `` -> `...17`
-#> ✔ Parsing data [205ms]
+#> ✔ Parsing data [208ms]
 #> 
 #>            date  fuel         description receipts_gbp_m
 #> 1537 2010-01-01 total Total oils receipts      1949.0318
@@ -289,10 +289,10 @@ get_fuel_duties(fuel = "total", start = "2010-01")
 # All categories
 get_fuel_duties()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [17ms]
+#> ✔ Resolving download URL from GOV.UK Content API [13ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [10ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -313,7 +313,7 @@ get_fuel_duties()
 #> • `` -> `...15`
 #> • `` -> `...16`
 #> • `` -> `...17`
-#> ✔ Parsing data [189ms]
+#> ✔ Parsing data [191ms]
 #> 
 #>            date   fuel         description receipts_gbp_m
 #> 1    1990-01-01 diesel       Diesel duties     318.094000

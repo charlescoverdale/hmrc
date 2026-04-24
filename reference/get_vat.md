@@ -76,10 +76,10 @@ op <- options(hmrc.cache_dir = tempdir())
 # Total VAT receipts since 2010
 get_vat(measure = "total", start = "2010-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [109ms]
+#> ✔ Resolving download URL from GOV.UK Content API [443ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [787ms]
+#> ✔ Downloading data file [833ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -285,7 +285,7 @@ get_vat(measure = "total", start = "2010-01")
 # Full breakdown
 get_vat(start = "2020-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [17ms]
+#> ✔ Resolving download URL from GOV.UK Content API [13ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [5ms]

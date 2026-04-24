@@ -77,10 +77,10 @@ op <- options(hmrc.cache_dir = tempdir())
 # All R&D credit data
 get_rd_credits()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [321ms]
+#> ✔ Resolving download URL from GOV.UK Content API [125ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [280ms]
+#> ✔ Downloading data file [10ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -111,7 +111,7 @@ get_rd_credits()
 #> • `` -> `...9`
 #> • `` -> `...10`
 #> • `` -> `...11`
-#> ✔ Parsing data [220ms]
+#> ✔ Parsing data [167ms]
 #> 
 #>     tax_year scheme                   description      measure value
 #> 1    2000-01   rdec R&D Expenditure Credit (RDEC) amount_gbp_m    NA
@@ -262,10 +262,10 @@ get_rd_credits()
 # SME scheme claims only
 get_rd_credits(scheme = "sme", measure = "claims")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [13ms]
+#> ✔ Resolving download URL from GOV.UK Content API [15ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [6ms]
+#> ✔ Using cached file [4ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -296,7 +296,7 @@ get_rd_credits(scheme = "sme", measure = "claims")
 #> • `` -> `...9`
 #> • `` -> `...10`
 #> • `` -> `...11`
-#> ✔ Parsing data [227ms]
+#> ✔ Parsing data [169ms]
 #> 
 #>    tax_year scheme    description measure value
 #> 73  2000-01    sme SME R&D Relief  claims  1860

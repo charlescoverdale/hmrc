@@ -76,10 +76,10 @@ op <- options(hmrc.cache_dir = tempdir())
 # Total VAT receipts since 2010
 get_vat(measure = "total", start = "2010-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [443ms]
+#> ✔ Resolving download URL from GOV.UK Content API [123ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [833ms]
+#> ✔ Downloading data file [11ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -89,7 +89,7 @@ get_vat(measure = "total", start = "2010-01")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [100ms]
+#> ✔ Parsing data [133ms]
 #> 
 #>            date measure        description receipts_gbp_m
 #> 2962 2010-01-01   total Total VAT receipts           8230
@@ -285,7 +285,7 @@ get_vat(measure = "total", start = "2010-01")
 # Full breakdown
 get_vat(start = "2020-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [13ms]
+#> ✔ Resolving download URL from GOV.UK Content API [12ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [5ms]
@@ -298,7 +298,7 @@ get_vat(start = "2020-01")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [99ms]
+#> ✔ Parsing data [215ms]
 #> 
 #>            date    measure        description receipts_gbp_m
 #> 562  2020-01-01   home_vat           Home VAT          12000

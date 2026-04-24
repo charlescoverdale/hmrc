@@ -58,13 +58,13 @@ Other corporate:
 op <- options(hmrc.cache_dir = tempdir())
 get_corporation_tax()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✖ Resolving download URL from GOV.UK Content API [362ms]
+#> ✖ Resolving download URL from GOV.UK Content API [602ms]
 #> 
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [123ms]
+#> ✔ Resolving download URL from GOV.UK Content API [127ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [96ms]
+#> ✔ Downloading data file [437ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -75,7 +75,7 @@ get_corporation_tax()
 #> • `` -> `...5`
 #> • `` -> `...6`
 #> • `` -> `...7`
-#> ✔ Parsing data [116ms]
+#> ✔ Parsing data [164ms]
 #> 
 #>    tax_year                        type
 #> 1   2019-20         all_corporate_taxes

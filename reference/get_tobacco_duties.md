@@ -67,10 +67,10 @@ op <- options(hmrc.cache_dir = tempdir())
 # All products since 2015
 get_tobacco_duties(start = "2015-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [134ms]
+#> ✔ Resolving download URL from GOV.UK Content API [109ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [552ms]
+#> ✔ Downloading data file [210ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -80,7 +80,7 @@ get_tobacco_duties(start = "2015-01")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [149ms]
+#> ✔ Parsing data [139ms]
 #> 
 #>            date      product            description receipts_gbp_m
 #> 289  2015-01-01   cigarettes             Cigarettes    862.0656853
@@ -752,10 +752,10 @@ get_tobacco_duties(start = "2015-01")
 # Cigarettes only
 get_tobacco_duties(product = "cigarettes")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [23ms]
+#> ✔ Resolving download URL from GOV.UK Content API [18ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [6ms]
+#> ✔ Using cached file [5ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -765,7 +765,7 @@ get_tobacco_duties(product = "cigarettes")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [94ms]
+#> ✔ Parsing data [87ms]
 #> 
 #>           date    product description receipts_gbp_m
 #> 1   1991-01-01 cigarettes  Cigarettes             NA

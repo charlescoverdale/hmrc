@@ -62,10 +62,10 @@ op <- options(hmrc.cache_dir = tempdir())
 # All stamp duty types
 get_stamp_duty()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [131ms]
+#> ✔ Resolving download URL from GOV.UK Content API [427ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [265ms]
+#> ✔ Downloading data file [192ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -77,7 +77,7 @@ get_stamp_duty()
 #> • `` -> `...6`
 #> • `` -> `...7`
 #> • `` -> `...8`
-#> ✔ Parsing data [174ms]
+#> ✔ Parsing data [182ms]
 #> 
 #>     tax_year          type                         description receipts_gbp_m
 #> 1    2003-04   sdlt_leases                  SDLT on new leases            405
@@ -216,7 +216,7 @@ get_stamp_duty()
 # SDLT only
 get_stamp_duty(type = "sdlt_total")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [17ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [5ms]
@@ -231,7 +231,7 @@ get_stamp_duty(type = "sdlt_total")
 #> • `` -> `...6`
 #> • `` -> `...7`
 #> • `` -> `...8`
-#> ✔ Parsing data [186ms]
+#> ✔ Parsing data [191ms]
 #> 
 #>    tax_year       type description receipts_gbp_m
 #> 45  2003-04 sdlt_total  SDLT total           4985

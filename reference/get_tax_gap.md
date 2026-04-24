@@ -84,13 +84,13 @@ op <- options(hmrc.cache_dir = tempdir())
 # Full tax gap breakdown
 get_tax_gap()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [134ms]
+#> ✔ Resolving download URL from GOV.UK Content API [108ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [1s]
+#> ✔ Downloading data file [820ms]
 #> 
 #> ℹ Parsing data
-#> ✔ Parsing data [52ms]
+#> ✔ Parsing data [54ms]
 #> 
 #>    tax_year                                 tax
 #> 1   2023-24                     Corporation Tax
@@ -201,13 +201,13 @@ get_tax_gap()
 # VAT gap only
 get_tax_gap(tax = "VAT")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [20ms]
+#> ✔ Resolving download URL from GOV.UK Content API [17ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [5ms]
 #> 
 #> ℹ Parsing data
-#> ✔ Parsing data [48ms]
+#> ✔ Parsing data [49ms]
 #> 
 #>    tax_year tax taxpayer_type component gap_pct gap_gbp_bn uncertainty
 #> 34  2023-24 VAT     Total VAT Total VAT       5        8.9      Medium

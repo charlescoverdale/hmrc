@@ -1,0 +1,204 @@
+# Getting UK tax data with hmrc
+
+The `hmrc` package provides tidy access to statistical data published by
+HM Revenue and Customs (HMRC) on GOV.UK. All functions resolve download
+URLs at runtime via the GOV.UK Content API and cache files locally
+between sessions.
+
+``` r
+library(hmrc)
+```
+
+## Monthly tax receipts
+
+[`get_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/get_tax_receipts.md)
+downloads the monthly HMRC Tax Receipts and National Insurance
+Contributions bulletin, covering 41 tax heads from April 2016 to the
+most recent published month.
+
+``` r
+# All 41 tax heads
+receipts <- get_tax_receipts()
+head(receipts)
+#>         date   tax_head          description receipts_gbp_m
+#>   2016-04-01 income_tax Income Tax (PAYE...          17423
+#>   2016-05-01 income_tax Income Tax (PAYE...          11847
+```
+
+Use
+[`list_tax_heads()`](https://charlescoverdale.github.io/hmrc/reference/list_tax_heads.md)
+to see all available identifiers without downloading data:
+
+``` r
+list_tax_heads()
+```
+
+Filter to specific heads and date ranges:
+
+``` r
+big_three <- get_tax_receipts(
+  tax   = c("income_tax", "vat", "nics_total"),
+  start = "2020-01"
+)
+```
+
+``` r
+library(ggplot2)
+
+ggplot(big_three, aes(x = date, y = receipts_gbp_m / 1000, colour = description)) +
+  geom_line(linewidth = 0.8) +
+  scale_y_continuous(labels = scales::label_comma(suffix = "bn")) +
+  labs(
+    title   = "UK monthly tax receipts",
+    x       = NULL,
+    y       = "GBP billions",
+    colour  = NULL,
+    caption = "Source: HMRC Tax Receipts and NICs bulletin"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "bottom")
+```
+
+## VAT
+
+[`get_vat()`](https://charlescoverdale.github.io/hmrc/reference/get_vat.md)
+covers monthly VAT receipts from April 1973, broken into payments,
+repayments, import VAT, and home VAT.
+
+``` r
+# Net VAT: total minus repayments
+vat <- get_vat(measure = c("total", "repayments"), start = "2015-01")
+
+# Repayments are recorded as negative (money flowing out of HMRC)
+head(vat[vat$measure == "repayments", c("date", "receipts_gbp_m")])
+```
+
+## Fuel duties
+
+[`get_fuel_duties()`](https://charlescoverdale.github.io/hmrc/reference/get_fuel_duties.md)
+covers monthly hydrocarbon oil duty receipts from January 1990, broken
+down into petrol, diesel, other, and total.
+
+``` r
+fuel <- get_fuel_duties(fuel = "total", start = "2010-01")
+
+# Annual totals
+fuel$year <- format(fuel$date, "%Y")
+aggregate(receipts_gbp_m ~ year, data = fuel, FUN = sum)
+```
+
+## Tobacco duties
+
+[`get_tobacco_duties()`](https://charlescoverdale.github.io/hmrc/reference/get_tobacco_duties.md)
+covers monthly tobacco duty receipts from January 1991, by product:
+cigarettes, cigars, hand-rolling tobacco, other, and total.
+
+``` r
+tobacco <- get_tobacco_duties(product = c("cigarettes", "hand_rolling"),
+                              start   = "2015-01")
+```
+
+## Corporation Tax
+
+[`get_corporation_tax()`](https://charlescoverdale.github.io/hmrc/reference/get_corporation_tax.md)
+returns annual Corporation Tax receipts broken down by levy type —
+onshore CT, offshore CT, Bank Levy, Bank Surcharge, Residential Property
+Developer Tax (RPDT), Energy Profits Levy (EPL), and Electricity
+Generators Levy (EGL). Covers 2019-20 to the most recent financial year.
+
+``` r
+ct <- get_corporation_tax()
+ct[ct$type == "total_ct", c("tax_year", "receipts_gbp_m")]
+```
+
+## Stamp duty
+
+[`get_stamp_duty()`](https://charlescoverdale.github.io/hmrc/reference/get_stamp_duty.md)
+returns annual stamp duty receipts by type from 2003-04: SDLT on
+property, SDLT on new leases, SDRT on shares, and stamp duty on
+documents.
+
+``` r
+sd <- get_stamp_duty(type = "sdlt_total")
+tail(sd[, c("tax_year", "receipts_gbp_m")], 5)
+```
+
+## R&D tax credits
+
+[`get_rd_credits()`](https://charlescoverdale.github.io/hmrc/reference/get_rd_credits.md)
+returns annual statistics on R&D tax credit claims and their cost by
+scheme (SME R&D Relief and RDEC) from 2000-01.
+
+``` r
+# Cost of R&D credits — SME vs RDEC
+rd <- get_rd_credits(measure = "amount_gbp_m")
+rd[rd$tax_year == "2023-24", c("scheme", "description", "value")]
+```
+
+## Tax gap
+
+[`get_tax_gap()`](https://charlescoverdale.github.io/hmrc/reference/get_tax_gap.md)
+returns the most recent cross-sectional tax gap estimates, broken down
+by tax type, taxpayer group, and behaviour component (evasion, error,
+avoidance, etc.).
+
+``` r
+gap <- get_tax_gap()
+
+# Sort by absolute gap
+gap[order(-gap$gap_gbp_bn),
+    c("tax", "component", "gap_gbp_bn", "uncertainty")]
+```
+
+## Income Tax liabilities
+
+[`get_income_tax_stats()`](https://charlescoverdale.github.io/hmrc/reference/get_income_tax_stats.md)
+returns annual Income Tax liabilities by income range (HMRC Table 2.5),
+including taxpayer counts, total income, tax liabilities, and average
+tax rates.
+
+``` r
+it <- get_income_tax_stats(tax_year = "2023-24")
+it[, c("income_range", "taxpayers_thousands", "tax_liability_gbp_m", "average_rate_pct")]
+```
+
+## Property transactions
+
+[`get_property_transactions()`](https://charlescoverdale.github.io/hmrc/reference/get_property_transactions.md)
+returns monthly counts of residential and non-residential property
+transactions by UK nation from April 2005.
+
+``` r
+prop <- get_property_transactions(
+  type   = "residential",
+  nation = "uk",
+  start  = "2018-01"
+)
+```
+
+``` r
+ggplot(prop, aes(x = date, y = transactions / 1000)) +
+  geom_line(colour = "#3B82F6", linewidth = 0.8) +
+  scale_y_continuous(labels = scales::label_comma(suffix = "k")) +
+  labs(
+    title   = "UK residential property transactions",
+    x       = NULL,
+    y       = "Transactions (thousands)",
+    caption = "Source: HMRC Monthly Property Transactions bulletin"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+## Caching
+
+All downloads are cached locally in your user cache directory.
+Subsequent calls return the cached file instantly with no network
+request.
+
+``` r
+# Remove files older than 30 days
+clear_cache(max_age_days = 30)
+
+# Remove everything and start fresh
+clear_cache()
+```

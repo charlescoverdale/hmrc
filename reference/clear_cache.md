@@ -35,7 +35,7 @@ Other data access:
 op <- options(hmrc.cache_dir = tempdir())
 # Remove all cached files
 clear_cache()
-#> Deleted 1 cached file.
+#> Deleted 3 cached files.
 
 # Remove files older than 30 days
 clear_cache(max_age_days = 30)

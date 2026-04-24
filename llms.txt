@@ -2,6 +2,8 @@
 
 > Provides functions to download, parse, and tidy statistical data published by 'HM Revenue and Customs' ('HMRC') on 'GOV. Install with `install.packages("hmrc")`.
 
+Full API reference (for agents): https://raw.githubusercontent.com/charlescoverdale/hmrc/main/llms-full.txt
+
 Version: 0.3.3. License: MIT.
 
 ## Functions

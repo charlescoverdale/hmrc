@@ -1,0 +1,442 @@
+# hmrc — full API reference
+
+> Provides functions to download, parse, and tidy statistical data published by 'HM Revenue and Customs' ('HMRC') on 'GOV.
+
+- Version: 0.3.3
+- Install: `install.packages("hmrc")`
+- CRAN: https://CRAN.R-project.org/package=hmrc
+- GitHub: https://github.com/charlescoverdale/hmrc
+- Reference site: https://charlescoverdale.github.io/hmrc/
+
+This file is a self-contained reference for LLM agents: every exported
+function with its signature, arguments, return value, and example.
+
+---
+
+## `clear_cache()`
+
+**Clear the local HMRC data cache**
+
+Deletes locally cached data files downloaded by the hmrc package. By default, all cached files are removed. Use `max_age_days` to remove only files older than a given number of days.
+
+**Usage**
+
+```r
+clear_cache(max_age_days = NULL)
+```
+
+**Arguments**
+
+- `max_age_days` — Numeric or `NULL`. If `NULL` (default), all cached files are removed. If a number, only files last modified more than that many days ago are removed.
+
+**Returns**
+
+Invisibly returns the number of files deleted.
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# Remove all cached files
+clear_cache()
+
+# Remove files older than 30 days
+clear_cache(max_age_days = 30)
+options(op)
+```
+
+---
+
+## `get_corporation_tax()`
+
+**Download HMRC Corporation Tax receipts by type**
+
+Downloads and tidies the HMRC Corporation Tax Statistics annual publication, reporting receipts broken down by tax type for the most recent six financial years. Published annually in September.
+
+**Usage**
+
+```r
+get_corporation_tax(cache = TRUE)
+```
+
+**Arguments**
+
+- `cache` — Logical. Use cached file if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: tax_yearCharacter. Financial year, e.g. `"2023-24"`. typeCharacter. Tax type identifier. descriptionCharacter. Plain-English label. receipts_gbp_mNumeric. Receipts in millions of pounds.
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+get_corporation_tax()
+options(op)
+```
+
+---
+
+## `get_fuel_duties()`
+
+**Download HMRC hydrocarbon oil (fuel duty) receipts**
+
+Downloads and tidies the HMRC Hydrocarbon Oils Bulletin, which reports monthly fuel duty receipts. Data runs from January 1990 to the most recent published month, updated twice per year (January and July).
+
+**Usage**
+
+```r
+get_fuel_duties(fuel = NULL, start = NULL, end = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `fuel` — Character vector or `NULL` (default = all). Valid values: `"total"`, `"petrol"`, `"diesel"`, `"other"`.
+- `start` — Character `"YYYY-MM"` or a `Date` object.
+- `end` — Character `"YYYY-MM"` or a `Date` object.
+- `cache` — Logical. Use cached file if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: date`Date`. First day of the reference month. fuelCharacter. Fuel category identifier. descriptionCharacter. Plain-English category label. receipts_gbp_mNumeric. Duty receipts in millions of pounds.
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# Total fuel duty receipts since 2010
+get_fuel_duties(fuel = "total", start = "2010-01")
+
+# All categories
+get_fuel_duties()
+options(op)
+```
+
+---
+
+## `get_income_tax_stats()`
+
+**Download HMRC Income Tax liabilities by income range**
+
+Downloads and tidies HMRC Table 2.5, which reports the number of Income Tax payers and their liabilities grouped by total income range, for each available tax year. Numbers of taxpayers are in thousands; amounts are in millions of pounds unless otherwise noted. Published annually in May/June.
+
+**Usage**
+
+```r
+get_income_tax_stats(tax_year = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `tax_year` — Character vector or `NULL` (default = all years). Filter to specific tax years, e.g. `"2023-24"`.
+- `cache` — Logical. Use cached file if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: tax_yearCharacter. Tax year, e.g. `"2022-23"`. income_rangeCharacter. Income range label. income_lower_gbpNumeric. Lower limit of the income range in pounds. `NA` for the `"All Ranges"` row. taxpayers_thousandsNumeric. Number of Income Tax payers (thousands). total_income_gbp_mNumeric. Total income (millions of pounds). tax_liability_gbp_mNumeric. Total Income Tax liability (millions of pounds). average_rate_pctNumeric. Average rate of Income Tax (percent). average_tax_gbpNumeric. Average amount of Income Tax per taxpayer (pounds).
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+get_income_tax_stats()
+
+# Single tax year
+get_income_tax_stats(tax_year = "2023-24")
+options(op)
+```
+
+---
+
+## `get_property_transactions()`
+
+**Download monthly UK property transaction counts**
+
+Downloads and tidies the HMRC Monthly Property Transactions bulletin, which counts residential and non-residential property transactions (SDLT returns, LBTT in Scotland, LTT in Wales) for England, Scotland, Wales, Northern Ireland, and the UK total. Data runs from April 2005 to the most recent completed month.
+
+**Usage**
+
+```r
+get_property_transactions(
+  type = c("all", "residential", "non_residential"),
+  nation = NULL,
+  start = NULL,
+  end = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `type` — Character. One of `"all"` (default), `"residential"`, or `"non_residential"`.
+- `nation` — Character vector or `NULL` (default = all nations). Valid values: `"uk"`, `"england"`, `"scotland"`, `"wales"`, `"northern_ireland"`.
+- `start` — Character `"YYYY-MM"` or a `Date` object. Rows before this month are dropped.
+- `end` — Character `"YYYY-MM"` or a `Date` object. Rows after this month are dropped.
+- `cache` — Logical. If `TRUE` (default), the downloaded file is cached.
+
+**Returns**
+
+A data frame with columns: date`Date`. The first day of the reference month. nationCharacter. One of `"uk"`, `"england"`, `"scotland"`, `"wales"`, or `"northern_ireland"`. typeCharacter. `"residential"` or `"non_residential"`. transactionsNumeric. Number of transactions.
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# All nations, all types
+get_property_transactions()
+
+# Residential only, England, since 2020
+get_property_transactions(type = "residential", nation = "england",
+                          start = "2020-01")
+options(op)
+```
+
+---
+
+## `get_rd_credits()`
+
+**Download HMRC R&D tax credit statistics**
+
+Downloads and tidies the HMRC Research and Development Tax Credits Statistics publication, covering the SME R&D Relief and Research and Development Expenditure Credit (RDEC) schemes. Annual data runs from 2000-01 to the most recent financial year, published annually in September.
+
+**Usage**
+
+```r
+get_rd_credits(scheme = NULL, measure = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `scheme` — Character vector or `NULL` (default = all schemes). Valid values: `"sme"` (SME R&D Relief), `"rdec"` (Research and Development Expenditure Credit / large company scheme), `"total"` (combined).
+- `measure` — Character vector or `NULL` (default = all measures). Valid values: `"claims"` (number of claims), `"amount_gbp_m"` (cost in millions of pounds).
+- `cache` — Logical. Use cached file if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: tax_yearCharacter. Financial year, e.g. `"2023-24"`. schemeCharacter. Scheme identifier. descriptionCharacter. Plain-English scheme label. measureCharacter. Either `"claims"` or `"amount_gbp_m"`. valueNumeric. Number of claims or cost in millions of pounds.
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# All R&D credit data
+get_rd_credits()
+
+# SME scheme claims only
+get_rd_credits(scheme = "sme", measure = "claims")
+options(op)
+```
+
+---
+
+## `get_stamp_duty()`
+
+**Download HMRC stamp duty receipts**
+
+Downloads and tidies the HMRC Annual Stamp Tax Statistics, covering Stamp Duty Land Tax (SDLT), Stamp Duty Reserve Tax (SDRT) on shares, and other stamp duties. Annual data from 2003-04 to the most recent financial year, published each December.
+
+**Usage**
+
+```r
+get_stamp_duty(type = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `type` — Character vector or `NULL` (default = all types). Valid values: `"sdlt_property"` (SDLT on property excluding new leases), `"sdlt_leases"` (SDLT on new leases), `"sdlt_total"` (all SDLT), `"sdrt"` (Stamp Duty Reserve Tax on shares), `"stamp_duty"` (Stamp Duty on documents), `"total"`.
+- `cache` — Logical. Use cached file if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: tax_yearCharacter. Financial year, e.g. `"2023-24"`. typeCharacter. Stamp duty type identifier. descriptionCharacter. Plain-English label. receipts_gbp_mNumeric. Receipts in millions of pounds, rounded to nearest £5m.
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# All stamp duty types
+get_stamp_duty()
+
+# SDLT only
+get_stamp_duty(type = "sdlt_total")
+options(op)
+```
+
+---
+
+## `get_tax_gap()`
+
+**Download HMRC tax gap estimates**
+
+Downloads and tidies the HMRC Measuring the Tax Gap publication, which estimates the difference between the tax theoretically owed and the tax actually collected, broken down by tax type and taxpayer group. Published annually in June, covering the most recent financial year.
+
+**Usage**
+
+```r
+get_tax_gap(tax = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `tax` — Character vector or `NULL` (default = all taxes). Filter by tax type, e.g. `"Income Tax"`, `"VAT"`, `"Corporation Tax"`. Use `unique(get_tax_gap()$tax)` to see all available values.
+- `cache` — Logical. Use cached file if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: tax_yearCharacter. Financial year of the estimate, e.g. `"2023-24"`. taxCharacter. Tax type. taxpayer_typeCharacter. Taxpayer group (e.g. `"Individuals"`, `"Small businesses"`). componentCharacter. Behaviour component (e.g. `"Evasion"`, `"Error"`, `"Avoidance"`). gap_pctNumeric. Tax gap as a percentage of the theoretical tax liability. `NA` where not disclosed. gap_gbp_bnNumeric. Absolute tax gap in billions of pounds. uncertaintyCharacter. HMRC uncertainty rating for the estimate (e.g. `"Low"`, `"Medium"`, `"High"`).
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# Full tax gap breakdown
+get_tax_gap()
+
+# VAT gap only
+get_tax_gap(tax = "VAT")
+options(op)
+```
+
+---
+
+## `get_tax_receipts()`
+
+**Download HMRC tax receipts and National Insurance contributions**
+
+Downloads and tidies the monthly HMRC Tax Receipts and National Insurance Contributions bulletin published on GOV.UK. The bulletin covers all major UK taxes and duties from April 2016 to the most recent month (monthly granularity), updated on approximately the 15th working day of each month.
+
+**Usage**
+
+```r
+get_tax_receipts(tax = NULL, start = NULL, end = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `tax` — Character vector of tax head identifiers, or `NULL` (default) to return all available series. Use `list_tax_heads()` to see valid values and descriptions.
+- `start` — Character `"YYYY-MM"` or a `Date` object. If provided, rows before this month are dropped.
+- `end` — Character `"YYYY-MM"` or a `Date` object. If provided, rows after this month are dropped.
+- `cache` — Logical. If `TRUE` (default), the downloaded file is cached locally and reused on subsequent calls. Use `clear_cache()` to reset.
+
+**Returns**
+
+A data frame with columns: date`Date`. The first day of the reference month. tax_headCharacter. Tax or duty identifier (see `list_tax_heads()`). descriptionCharacter. Plain-English series label. receipts_gbp_mNumeric. Cash receipts in millions of pounds (GBP).
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# All tax heads
+get_tax_receipts()
+
+# Income Tax and VAT only
+get_tax_receipts(tax = c("income_tax", "vat"))
+
+# Since April 2020
+get_tax_receipts(start = "2020-04")
+
+# VAT in a specific window
+get_tax_receipts(tax = "vat", start = "2019-01", end = "2024-12")
+options(op)
+```
+
+---
+
+## `get_tobacco_duties()`
+
+**Download HMRC tobacco duty receipts**
+
+Downloads and tidies the HMRC Tobacco Bulletin, which reports monthly tobacco products duty receipts by product type. Data runs from January 1991 to the most recent published month, updated twice per year (February and August).
+
+**Usage**
+
+```r
+get_tobacco_duties(product = NULL, start = NULL, end = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `product` — Character vector or `NULL` (default = all products). Valid values: `"cigarettes"`, `"cigars"`, `"hand_rolling"`, `"other"`, `"total"`.
+- `start` — Character `"YYYY-MM"` or a `Date` object.
+- `end` — Character `"YYYY-MM"` or a `Date` object.
+- `cache` — Logical. Use cached file if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: date`Date`. First day of the reference month. productCharacter. Product type identifier. descriptionCharacter. Plain-English product label. receipts_gbp_mNumeric. Duty receipts in millions of pounds.
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# All products since 2015
+get_tobacco_duties(start = "2015-01")
+
+# Cigarettes only
+get_tobacco_duties(product = "cigarettes")
+options(op)
+```
+
+---
+
+## `get_vat()`
+
+**Download HMRC VAT receipts**
+
+Downloads and tidies the HMRC VAT Annual Statistics bulletin, which reports monthly VAT receipts broken down into payments, repayments, import VAT, and home VAT. Monthly data runs from April 1973; the bulletin is published annually (December).
+
+**Usage**
+
+```r
+get_vat(measure = NULL, start = NULL, end = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `measure` — Character vector or `NULL` (default = all measures). Valid values: `"total"`, `"payments"`, `"repayments"`, `"import_vat"`, `"home_vat"`.
+- `start` — Character `"YYYY-MM"` or a `Date` object.
+- `end` — Character `"YYYY-MM"` or a `Date` object.
+- `cache` — Logical. Use cached file if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: date`Date`. First day of the reference month. measureCharacter. VAT measure identifier. descriptionCharacter. Plain-English measure label. receipts_gbp_mNumeric. Value in millions of pounds. Repayments are negative (money flowing out from HMRC to businesses).
+
+**Example**
+
+```r
+op <- options(hmrc.cache_dir = tempdir())
+# Total VAT receipts since 2010
+get_vat(measure = "total", start = "2010-01")
+
+# Full breakdown
+get_vat(start = "2020-01")
+options(op)
+```
+
+---
+
+## `list_tax_heads()`
+
+**List available tax heads in the HMRC Tax Receipts bulletin**
+
+Returns a data frame describing all tax and duty heads available in `get_tax_receipts()`. No network connection is required; the data is bundled with the package.
+
+**Usage**
+
+```r
+list_tax_heads()
+```
+
+**Returns**
+
+A data frame with columns: tax_headCharacter. The identifier used in the `tax` argument of `get_tax_receipts()`. descriptionCharacter. Plain-English description of the series. categoryCharacter. Broad grouping: `"income"`, `"expenditure"`, `"consumption"`, `"property"`, `"environment"`, `"nics"`, or `"total"`. available_fromCharacter. Earliest year of monthly data (approximate).
+
+**Example**
+
+```r
+list_tax_heads()
+```
+
+---
+

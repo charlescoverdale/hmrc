@@ -82,10 +82,10 @@ op <- options(hmrc.cache_dir = tempdir())
 # All nations, all types
 get_property_transactions()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [124ms]
+#> ✔ Resolving download URL from GOV.UK Content API [548ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [423ms]
+#> ✔ Downloading data file [612ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -104,7 +104,7 @@ get_property_transactions()
 #> • `` -> `...5`
 #> • `` -> `...6`
 #> • `` -> `...7`
-#> ✔ Parsing data [140ms]
+#> ✔ Parsing data [174ms]
 #> 
 #>            date           nation            type transactions
 #> 1    2005-04-01          england non_residential         9200
@@ -2622,10 +2622,10 @@ get_property_transactions()
 get_property_transactions(type = "residential", nation = "england",
                           start = "2020-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [12ms]
+#> ✔ Resolving download URL from GOV.UK Content API [26ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [4ms]
+#> ✔ Using cached file [5ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -2644,7 +2644,7 @@ get_property_transactions(type = "residential", nation = "england",
 #> • `` -> `...5`
 #> • `` -> `...6`
 #> • `` -> `...7`
-#> ✔ Parsing data [141ms]
+#> ✔ Parsing data [178ms]
 #> 
 #>            date  nation        type transactions
 #> 1433 2020-01-01 england residential        71030

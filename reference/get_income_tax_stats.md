@@ -83,10 +83,10 @@ Other tax receipts:
 op <- options(hmrc.cache_dir = tempdir())
 get_income_tax_stats()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [427ms]
+#> ✔ Resolving download URL from GOV.UK Content API [443ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [326ms]
+#> ✔ Downloading data file [619ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -149,7 +149,7 @@ get_income_tax_stats()
 #> • `` -> `...12`
 #> • `` -> `...13`
 #> • `` -> `...14`
-#> ✔ Parsing data [430ms]
+#> ✔ Parsing data [531ms]
 #> 
 #>    tax_year income_range income_lower_gbp taxpayers_thousands
 #> 1   2022-23        12570            12570                2870
@@ -253,10 +253,10 @@ get_income_tax_stats()
 # Single tax year
 get_income_tax_stats(tax_year = "2023-24")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [11ms]
+#> ✔ Resolving download URL from GOV.UK Content API [25ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [4ms]
+#> ✔ Using cached file [5ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -319,7 +319,7 @@ get_income_tax_stats(tax_year = "2023-24")
 #> • `` -> `...12`
 #> • `` -> `...13`
 #> • `` -> `...14`
-#> ✔ Parsing data [335ms]
+#> ✔ Parsing data [434ms]
 #> 
 #>    tax_year income_range income_lower_gbp taxpayers_thousands
 #> 1   2023-24        12570            12570                2960

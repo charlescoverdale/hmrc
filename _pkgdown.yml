@@ -48,3 +48,8 @@ reference:
   - title: "Package"
     contents:
       - hmrc-package
+
+  - title: "Data"
+    desc: "Reference data objects"
+    contents:
+      - tax_heads

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">hmrc</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,9 +37,89 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.0" id="hmrc-040">hmrc 0.4.0<a class="anchor" aria-label="anchor" href="#hmrc-040"></a></h2>
+<div class="section level3">
+<h3 id="new-data-fetchers-phase-of-the-v100-roadmap-partial-0-4-0">New data fetchers (Phase 2 of the v1.0.0 roadmap, partial)<a class="anchor" aria-label="anchor" href="#new-data-fetchers-phase-of-the-v100-roadmap-partial-0-4-0"></a></h3>
+<ul><li>
+<code><a href="../reference/hmrc_capital_gains.html">hmrc_capital_gains()</a></code> — Table 1 of the Capital Gains Tax statistics: estimated number of CGT taxpayers, gains, and tax liabilities by year of disposal, in tidy long format (<code>tax_year</code>, <code>measure</code>, <code>value</code>). Series begins 1987-88; published annually each summer.</li>
+<li>
+<code><a href="../reference/hmrc_inheritance_tax.html">hmrc_inheritance_tax()</a></code> — Table 12.1a of the Inheritance Tax Liabilities Statistics: numbers of estates, tax due, average tax, and average effective tax rate by net-estate band, for the latest year of death. Annual cross-section (~3-year publication lag).</li>
+<li>
+<code><a href="../reference/hmrc_patent_box.html">hmrc_patent_box()</a></code> — Table 1 of the Patent Box reliefs statistics: annual companies electing into the regime and total relief claimed. Series begins 2013-14; published annually in September.</li>
+<li>
+<code><a href="../reference/hmrc_creative_industries.html">hmrc_creative_industries()</a></code> — Table 1 of the Creative Industries statistics for all eight sector reliefs (Film, High-end TV, Animation, Children’s TV, Video Games, Theatre, Orchestra, Museums and Galleries). Annual time series back to the relief introduction date for each sector.</li>
+</ul><p>The catalogue (<code>catalogue</code> data, <code><a href="../reference/hmrc_search.html">hmrc_search()</a></code>, <code><a href="../reference/hmrc_publications.html">hmrc_publications()</a></code>) now reflects 14 implemented datasets (out of 23 known publications).</p>
+</div>
+<div class="section level3">
+<h3 id="architecture-refresh-phase-of-the-v100-roadmap-0-4-0">Architecture refresh (Phase 1 of the v1.0.0 roadmap)<a class="anchor" aria-label="anchor" href="#architecture-refresh-phase-of-the-v100-roadmap-0-4-0"></a></h3>
+<p>This release brings the package up to feature parity with sibling Coverdale packages (<code>boe</code>, <code>fred</code>, <code>ons</code>, <code>obr</code>) on infrastructure: a provenance-aware S3 class, a searchable dataset catalogue, and cache inspection.</p>
+<div class="section level4">
+<h4 id="new-hmrc_tbl-s3-class-with-provenance-metadata-0-4-0">New: <code>hmrc_tbl</code> S3 class with provenance metadata<a class="anchor" aria-label="anchor" href="#new-hmrc_tbl-s3-class-with-provenance-metadata-0-4-0"></a></h4>
+<ul><li>All <code>hmrc_*</code> data fetchers now return an <code>hmrc_tbl</code> (a subclass of <code>data.frame</code>) with a <code>"hmrc_meta"</code> attribute containing the source URL, attachment URL, fetch time, vintage, cell methods (cash / accruals / liabilities / counts), frequency, and package version.</li>
+<li>New generic <code>print.hmrc_tbl()</code> shows a 2-line provenance header followed by the data, e.g. <code>Source:</code>, <code>Fetched: ... | Vintage: latest | Cells:   cash | Freq: monthly | 1,234 rows x 4 cols</code>.</li>
+<li>New helper <code><a href="../reference/hmrc_meta.html">hmrc_meta()</a></code> extracts the metadata list for citation, audit trails, and reproducibility.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame()</a></code> strips the class and metadata cleanly for downstream tidyverse use; subsetting via <code>[</code> preserves the class and provenance.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="new-dataset-catalogue-and-discovery-0-4-0">New: dataset catalogue and discovery<a class="anchor" aria-label="anchor" href="#new-dataset-catalogue-and-discovery-0-4-0"></a></h4>
+<ul><li>New exported data frame <code>catalogue</code> describes every HMRC dataset known to the package, including those on the development roadmap (where <code>function_name</code> is <code>NA</code>).</li>
+<li>New <code>hmrc_search(query, implemented, frequency)</code> for fuzzy keyword search across publication name, description, tags, and dataset identifier.</li>
+<li>New <code>hmrc_publications(status)</code> returns a tidy index of implemented versus planned publications.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="new-cache-inspection-0-4-0">New: cache inspection<a class="anchor" aria-label="anchor" href="#new-cache-inspection-0-4-0"></a></h4>
+<ul><li>New <code><a href="../reference/hmrc_cache_info.html">hmrc_cache_info()</a></code> returns a tidy table of cached files with size, modified time, and age in days. The cache directory is attached as the <code>"cache_dir"</code> attribute.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="renamed-get_---hmrc_-0-4-0">Renamed: <code>get_*</code> -&gt; <code>hmrc_*</code>
+<a class="anchor" aria-label="anchor" href="#renamed-get_---hmrc_-0-4-0"></a></h4>
+<p>All exported data functions adopt the <code>hmrc_*</code> prefix to match sibling packages and improve discoverability:</p>
+<table class="table"><thead><tr class="header"><th>Before</th>
+<th>After</th>
+</tr></thead><tbody><tr class="odd"><td><code><a href="../reference/deprecated.html">get_tax_receipts()</a></code></td>
+<td><code><a href="../reference/hmrc_tax_receipts.html">hmrc_tax_receipts()</a></code></td>
+</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_vat()</a></code></td>
+<td><code><a href="../reference/hmrc_vat.html">hmrc_vat()</a></code></td>
+</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">get_fuel_duties()</a></code></td>
+<td><code><a href="../reference/hmrc_fuel_duties.html">hmrc_fuel_duties()</a></code></td>
+</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_tobacco_duties()</a></code></td>
+<td><code><a href="../reference/hmrc_tobacco_duties.html">hmrc_tobacco_duties()</a></code></td>
+</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">get_corporation_tax()</a></code></td>
+<td><code><a href="../reference/hmrc_corporation_tax.html">hmrc_corporation_tax()</a></code></td>
+</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_stamp_duty()</a></code></td>
+<td><code><a href="../reference/hmrc_stamp_duty.html">hmrc_stamp_duty()</a></code></td>
+</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">get_property_transactions()</a></code></td>
+<td><code><a href="../reference/hmrc_property_transactions.html">hmrc_property_transactions()</a></code></td>
+</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_income_tax_stats()</a></code></td>
+<td><code><a href="../reference/hmrc_income_tax_stats.html">hmrc_income_tax_stats()</a></code></td>
+</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">get_rd_credits()</a></code></td>
+<td><code><a href="../reference/hmrc_rd_credits.html">hmrc_rd_credits()</a></code></td>
+</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_tax_gap()</a></code></td>
+<td><code><a href="../reference/hmrc_tax_gap.html">hmrc_tax_gap()</a></code></td>
+</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">list_tax_heads()</a></code></td>
+<td><code><a href="../reference/hmrc_list_tax_heads.html">hmrc_list_tax_heads()</a></code></td>
+</tr><tr class="even"><td><code><a href="../reference/deprecated.html">clear_cache()</a></code></td>
+<td><code><a href="../reference/hmrc_clear_cache.html">hmrc_clear_cache()</a></code></td>
+</tr></tbody></table><p>The old <code>get_*</code> and <code><a href="../reference/deprecated.html">clear_cache()</a></code> / <code><a href="../reference/deprecated.html">list_tax_heads()</a></code> names continue to work but emit a one-time-per-session deprecation warning via <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_warn()</a></code>. They will be removed in v0.6.0.</p>
+</div>
+<div class="section level4">
+<h4 id="citation-infrastructure-0-4-0">Citation infrastructure<a class="anchor" aria-label="anchor" href="#citation-infrastructure-0-4-0"></a></h4>
+<ul><li>New <code>inst/CITATION</code> so <code>citation("hmrc")</code> returns a structured citation.</li>
+<li>New <code>CITATION.cff</code> at the repo root for the GitHub citation widget and Zenodo DOI deposit.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="internals-0-4-0">Internals<a class="anchor" aria-label="anchor" href="#internals-0-4-0"></a></h4>
+<ul><li>
+<code>resolve_govuk_url()</code> is now a thin wrapper around new <code>resolve_govuk_attachment()</code>, which returns both the publication page URL and the attachment URL plus public-update timestamp. This enables every <code>hmrc_*</code> function to record a stable source URL on every result.</li>
+<li>New <code>Imports</code>: <code>lifecycle</code> (for deprecation warnings), <code>utils</code>.</li>
+</ul></div>
+</div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.3" id="hmrc-033">hmrc 0.3.3<a class="anchor" aria-label="anchor" href="#hmrc-033"></a></h2>
 <ul><li>
-<code><a href="../reference/get_corporation_tax.html">get_corporation_tax()</a></code> now dynamically detects the latest publication year instead of using a hardcoded slug. This prevents the function from breaking when HMRC publishes a new annual edition.</li>
+<code><a href="../reference/deprecated.html">get_corporation_tax()</a></code> now dynamically detects the latest publication year instead of using a hardcoded slug. This prevents the function from breaking when HMRC publishes a new annual edition.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.2" id="hmrc-032">hmrc 0.3.2<a class="anchor" aria-label="anchor" href="#hmrc-032"></a></h2><p class="text-muted">CRAN release: 2026-03-17</p>
@@ -52,17 +132,17 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="hmrc-030">hmrc 0.3.0<a class="anchor" aria-label="anchor" href="#hmrc-030"></a></h2><p class="text-muted">CRAN release: 2026-03-12</p>
-<ul><li>Added <code><a href="../reference/get_income_tax_stats.html">get_income_tax_stats()</a></code>: annual Income Tax liabilities by income range, including taxpayer counts, total income, tax liabilities, and average tax rates (Table 2.5).</li>
+<ul><li>Added <code><a href="../reference/deprecated.html">get_income_tax_stats()</a></code>: annual Income Tax liabilities by income range, including taxpayer counts, total income, tax liabilities, and average tax rates (Table 2.5).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="hmrc-020">hmrc 0.2.0<a class="anchor" aria-label="anchor" href="#hmrc-020"></a></h2>
-<ul><li>Added <code><a href="../reference/get_vat.html">get_vat()</a></code>: monthly VAT receipts by component (payments, repayments, import VAT, home VAT) from April 1973.</li>
-<li>Added <code><a href="../reference/get_fuel_duties.html">get_fuel_duties()</a></code>: monthly hydrocarbon oil duty receipts by fuel type (petrol, diesel, other) from January 1990.</li>
-<li>Added <code><a href="../reference/get_tobacco_duties.html">get_tobacco_duties()</a></code>: monthly tobacco duty receipts by product (cigarettes, cigars, hand-rolling, other) from January 1991.</li>
-<li>Added <code><a href="../reference/get_corporation_tax.html">get_corporation_tax()</a></code>: annual Corporation Tax receipts by levy type (onshore, offshore, Bank Levy, Bank Surcharge, RPDT, EPL, EGL) from 2019-20.</li>
-<li>Added <code><a href="../reference/get_stamp_duty.html">get_stamp_duty()</a></code>: annual stamp duty receipts by type (SDLT, SDRT, stamp duty on documents) from 2003-04.</li>
-<li>Added <code><a href="../reference/get_rd_credits.html">get_rd_credits()</a></code>: annual R&amp;D tax credit claims and cost by scheme (SME R&amp;D Relief and RDEC) from 2000-01.</li>
-<li>Added <code><a href="../reference/get_tax_gap.html">get_tax_gap()</a></code>: cross-sectional tax gap estimates by tax type, taxpayer group, and behaviour component for the most recent year.</li>
+<ul><li>Added <code><a href="../reference/deprecated.html">get_vat()</a></code>: monthly VAT receipts by component (payments, repayments, import VAT, home VAT) from April 1973.</li>
+<li>Added <code><a href="../reference/deprecated.html">get_fuel_duties()</a></code>: monthly hydrocarbon oil duty receipts by fuel type (petrol, diesel, other) from January 1990.</li>
+<li>Added <code><a href="../reference/deprecated.html">get_tobacco_duties()</a></code>: monthly tobacco duty receipts by product (cigarettes, cigars, hand-rolling, other) from January 1991.</li>
+<li>Added <code><a href="../reference/deprecated.html">get_corporation_tax()</a></code>: annual Corporation Tax receipts by levy type (onshore, offshore, Bank Levy, Bank Surcharge, RPDT, EPL, EGL) from 2019-20.</li>
+<li>Added <code><a href="../reference/deprecated.html">get_stamp_duty()</a></code>: annual stamp duty receipts by type (SDLT, SDRT, stamp duty on documents) from 2003-04.</li>
+<li>Added <code><a href="../reference/deprecated.html">get_rd_credits()</a></code>: annual R&amp;D tax credit claims and cost by scheme (SME R&amp;D Relief and RDEC) from 2000-01.</li>
+<li>Added <code><a href="../reference/deprecated.html">get_tax_gap()</a></code>: cross-sectional tax gap estimates by tax type, taxpayer group, and behaviour component for the most recent year.</li>
 <li>Updated DESCRIPTION to reflect full package scope.</li>
 <li>Updated vignette to cover all functions.</li>
 </ul></div>
@@ -70,13 +150,13 @@
 <h2 class="pkg-version" data-toc-text="0.1.0" id="hmrc-010">hmrc 0.1.0<a class="anchor" aria-label="anchor" href="#hmrc-010"></a></h2>
 <ul><li>Initial release.</li>
 <li>
-<code><a href="../reference/get_tax_receipts.html">get_tax_receipts()</a></code>: monthly cash receipts for 41 tax heads, April 2016 to present.</li>
+<code><a href="../reference/deprecated.html">get_tax_receipts()</a></code>: monthly cash receipts for 41 tax heads, April 2016 to present.</li>
 <li>
-<code><a href="../reference/list_tax_heads.html">list_tax_heads()</a></code>: catalogue of available tax head identifiers.</li>
+<code><a href="../reference/deprecated.html">list_tax_heads()</a></code>: catalogue of available tax head identifiers.</li>
 <li>
-<code><a href="../reference/get_property_transactions.html">get_property_transactions()</a></code>: monthly residential and non-residential property transaction counts by UK nation, April 2005 to present.</li>
+<code><a href="../reference/deprecated.html">get_property_transactions()</a></code>: monthly residential and non-residential property transaction counts by UK nation, April 2005 to present.</li>
 <li>
-<code><a href="../reference/clear_cache.html">clear_cache()</a></code>: delete locally cached HMRC files.</li>
+<code><a href="../reference/deprecated.html">clear_cache()</a></code>: delete locally cached HMRC files.</li>
 </ul></div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

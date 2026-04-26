@@ -1,7 +1,7 @@
 # Tax head lookup table
 
 A data frame describing all tax and duty series available in
-[`get_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/get_tax_receipts.md).
+[`hmrc_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_receipts.md).
 
 ## Usage
 
@@ -16,7 +16,7 @@ A data frame with 41 rows and 4 columns:
 - tax_head:
 
   Character. Identifier used in the `tax` argument of
-  [`get_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/get_tax_receipts.md).
+  [`hmrc_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_receipts.md).
 
 - description:
 

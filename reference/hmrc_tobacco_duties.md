@@ -63,10 +63,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_tobacco_duties(start = "2015-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [539ms]
+#> ✔ Resolving download URL from GOV.UK Content API [750ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [24ms]
+#> ✔ Downloading data file [807ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -76,11 +76,11 @@ hmrc_tobacco_duties(start = "2015-01")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [216ms]
+#> ✔ Parsing data [99ms]
 #> 
 #> # Tobacco Bulletin
 #> # Source: https://www.gov.uk/government/statistics/tobacco-bulletin
-#> # Fetched 2026-04-26 13:02:09 UTC | Vintage: latest | Cells: cash | Freq: monthly | 665 rows x 4 cols
+#> # Fetched 2026-04-26 13:11:45 UTC | Vintage: latest | Cells: cash | Freq: monthly | 665 rows x 4 cols
 #> 
 #>           date      product            description receipts_gbp_m
 #> 1   2015-01-01   cigarettes             Cigarettes    862.0656853
@@ -750,7 +750,7 @@ hmrc_tobacco_duties(start = "2015-01")
 #> 665 2026-01-01        total Total tobacco products    430.8492678
 hmrc_tobacco_duties(product = "cigarettes")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [20ms]
+#> ✔ Resolving download URL from GOV.UK Content API [17ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [5ms]
@@ -763,11 +763,11 @@ hmrc_tobacco_duties(product = "cigarettes")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [93ms]
+#> ✔ Parsing data [92ms]
 #> 
 #> # Tobacco Bulletin
 #> # Source: https://www.gov.uk/government/statistics/tobacco-bulletin
-#> # Fetched 2026-04-26 13:02:09 UTC | Vintage: latest | Cells: cash | Freq: monthly | 421 rows x 4 cols
+#> # Fetched 2026-04-26 13:11:45 UTC | Vintage: latest | Cells: cash | Freq: monthly | 421 rows x 4 cols
 #> 
 #>           date    product description receipts_gbp_m
 #> 1   1991-01-01 cigarettes  Cigarettes             NA

@@ -36,10 +36,10 @@ Other infrastructure:
 op <- options(hmrc.cache_dir = tempdir())
 tr <- hmrc_tax_receipts(tax = "vat", start = "2024-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [654ms]
+#> ✔ Resolving download URL from GOV.UK Content API [476ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [25ms]
+#> ✔ Downloading data file [225ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -90,7 +90,7 @@ tr <- hmrc_tax_receipts(tax = "vat", start = "2024-01")
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [353ms]
+#> ✔ Parsing data [386ms]
 #> 
 hmrc_meta(tr)
 #> $dataset
@@ -118,7 +118,7 @@ hmrc_meta(tr)
 #> [1] NA
 #> 
 #> $fetched_at
-#> [1] "2026-04-26 13:01:58 UTC"
+#> [1] "2026-04-26 13:11:30 UTC"
 #> 
 #> $package_version
 #> [1] "0.4.0"

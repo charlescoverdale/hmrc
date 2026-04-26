@@ -62,10 +62,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_fuel_duties(fuel = "total", start = "2010-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [526ms]
+#> ✔ Resolving download URL from GOV.UK Content API [324ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [1s]
+#> ✔ Downloading data file [1.3s]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -86,11 +86,11 @@ hmrc_fuel_duties(fuel = "total", start = "2010-01")
 #> • `` -> `...15`
 #> • `` -> `...16`
 #> • `` -> `...17`
-#> ✔ Parsing data [176ms]
+#> ✔ Parsing data [219ms]
 #> 
 #> # Hydrocarbon Oils Bulletin (fuel duties)
 #> # Source: https://www.gov.uk/government/statistics/hydrocarbon-oils-bulletin
-#> # Fetched 2026-04-26 13:01:54 UTC | Vintage: latest | Cells: cash | Freq: monthly | 192 rows x 4 cols
+#> # Fetched 2026-04-26 13:11:25 UTC | Vintage: latest | Cells: cash | Freq: monthly | 192 rows x 4 cols
 #> 
 #>           date  fuel         description receipts_gbp_m
 #> 1   2010-01-01 total Total oils receipts      1949.0318
@@ -290,7 +290,7 @@ hmrc_fuel_duties()
 #> ✔ Resolving download URL from GOV.UK Content API [25ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [5ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -311,11 +311,11 @@ hmrc_fuel_duties()
 #> • `` -> `...15`
 #> • `` -> `...16`
 #> • `` -> `...17`
-#> ✔ Parsing data [162ms]
+#> ✔ Parsing data [176ms]
 #> 
 #> # Hydrocarbon Oils Bulletin (fuel duties)
 #> # Source: https://www.gov.uk/government/statistics/hydrocarbon-oils-bulletin
-#> # Fetched 2026-04-26 13:01:54 UTC | Vintage: latest | Cells: cash | Freq: monthly | 1,728 rows x 4 cols
+#> # Fetched 2026-04-26 13:11:25 UTC | Vintage: latest | Cells: cash | Freq: monthly | 1,728 rows x 4 cols
 #> 
 #>            date   fuel         description receipts_gbp_m
 #> 1    1990-01-01 diesel       Diesel duties     318.094000

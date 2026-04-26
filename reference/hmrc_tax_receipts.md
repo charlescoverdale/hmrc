@@ -91,7 +91,7 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_tax_receipts()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [18ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
@@ -145,11 +145,11 @@ hmrc_tax_receipts()
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [367ms]
+#> ✔ Parsing data [396ms]
 #> 
 #> # HMRC tax receipts and NICs (monthly bulletin)
 #> # Source: https://www.gov.uk/government/statistics/hmrc-tax-and-nics-receipts-for-the-uk
-#> # Fetched 2026-04-26 13:02:06 UTC | Vintage: latest | Cells: cash | Freq: monthly | 4,920 rows x 4 cols
+#> # Fetched 2026-04-26 13:11:41 UTC | Vintage: latest | Cells: cash | Freq: monthly | 4,920 rows x 4 cols
 #> 
 #>            date                           tax_head
 #> 1    2016-04-01                    aggregates_levy
@@ -14916,10 +14916,10 @@ hmrc_tax_receipts()
 #> 4920            358
 hmrc_tax_receipts(tax = c("income_tax", "vat"))
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [18ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [5ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -14970,11 +14970,11 @@ hmrc_tax_receipts(tax = c("income_tax", "vat"))
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [382ms]
+#> ✔ Parsing data [410ms]
 #> 
 #> # HMRC tax receipts and NICs (monthly bulletin)
 #> # Source: https://www.gov.uk/government/statistics/hmrc-tax-and-nics-receipts-for-the-uk
-#> # Fetched 2026-04-26 13:02:06 UTC | Vintage: latest | Cells: cash | Freq: monthly | 240 rows x 4 cols
+#> # Fetched 2026-04-26 13:11:41 UTC | Vintage: latest | Cells: cash | Freq: monthly | 240 rows x 4 cols
 #> 
 #>           date   tax_head                           description receipts_gbp_m
 #> 1   2016-04-01 income_tax Income Tax (PAYE and Self Assessment)          16126
@@ -15219,10 +15219,10 @@ hmrc_tax_receipts(tax = c("income_tax", "vat"))
 #> 240 2026-03-01        vat                       Value Added Tax          10119
 hmrc_tax_receipts(start = "2020-04")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [19ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [5ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -15273,11 +15273,11 @@ hmrc_tax_receipts(start = "2020-04")
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [370ms]
+#> ✔ Parsing data [397ms]
 #> 
 #> # HMRC tax receipts and NICs (monthly bulletin)
 #> # Source: https://www.gov.uk/government/statistics/hmrc-tax-and-nics-receipts-for-the-uk
-#> # Fetched 2026-04-26 13:02:07 UTC | Vintage: latest | Cells: cash | Freq: monthly | 2,952 rows x 4 cols
+#> # Fetched 2026-04-26 13:11:42 UTC | Vintage: latest | Cells: cash | Freq: monthly | 2,952 rows x 4 cols
 #> 
 #>            date                           tax_head
 #> 1    2020-04-01                    aggregates_levy
@@ -24140,10 +24140,10 @@ hmrc_tax_receipts(start = "2020-04")
 #> 2952            358
 hmrc_tax_receipts(tax = "vat", start = "2019-01", end = "2024-12")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [18ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [5ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -24194,11 +24194,11 @@ hmrc_tax_receipts(tax = "vat", start = "2019-01", end = "2024-12")
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> • `` -> `...47`
-#> ✔ Parsing data [365ms]
+#> ✔ Parsing data [399ms]
 #> 
 #> # HMRC tax receipts and NICs (monthly bulletin)
 #> # Source: https://www.gov.uk/government/statistics/hmrc-tax-and-nics-receipts-for-the-uk
-#> # Fetched 2026-04-26 13:02:07 UTC | Vintage: latest | Cells: cash | Freq: monthly | 72 rows x 4 cols
+#> # Fetched 2026-04-26 13:11:42 UTC | Vintage: latest | Cells: cash | Freq: monthly | 72 rows x 4 cols
 #> 
 #>          date tax_head     description receipts_gbp_m
 #> 1  2019-01-01      vat Value Added Tax          13701

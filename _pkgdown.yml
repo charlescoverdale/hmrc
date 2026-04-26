@@ -13,43 +13,69 @@ navbar:
       href: https://github.com/charlescoverdale/hmrc
 
 reference:
-  - title: Tax Receipts
+  - title: Tax receipts
     desc: Monthly and annual tax revenue data
     contents:
-      - get_tax_receipts
-      - list_tax_heads
-      - get_vat
-      - get_corporation_tax
+      - hmrc_tax_receipts
+      - hmrc_list_tax_heads
+      - hmrc_vat
+      - hmrc_corporation_tax
 
   - title: Duties
     desc: Monthly excise duty receipts
     contents:
-      - get_fuel_duties
-      - get_tobacco_duties
+      - hmrc_fuel_duties
+      - hmrc_tobacco_duties
 
-  - title: Property and Stamp Duty
+  - title: Property and stamp duty
     desc: Stamp duty receipts and property transactions
     contents:
-      - get_stamp_duty
-      - get_property_transactions
+      - hmrc_stamp_duty
+      - hmrc_property_transactions
 
-  - title: Tax Policy and Analysis
-    desc: R&D credits, tax gap estimates, and income tax statistics
+  - title: Wealth taxes
+    desc: Capital Gains Tax and Inheritance Tax statistics
     contents:
-      - get_rd_credits
-      - get_tax_gap
-      - get_income_tax_stats
+      - hmrc_capital_gains
+      - hmrc_inheritance_tax
 
-  - title: Utilities
-    desc: Cache management
+  - title: Tax reliefs and incentives
+    desc: R&D, Patent Box, and Creative Industries reliefs
     contents:
-      - clear_cache
+      - hmrc_rd_credits
+      - hmrc_patent_box
+      - hmrc_creative_industries
 
-  - title: "Package"
+  - title: Income Tax and tax gap
+    desc: Income Tax liabilities and tax gap estimates
+    contents:
+      - hmrc_income_tax_stats
+      - hmrc_tax_gap
+
+  - title: Discovery and provenance
+    desc: Search the catalogue and inspect result metadata
+    contents:
+      - hmrc_search
+      - hmrc_publications
+      - hmrc_meta
+
+  - title: Cache management
+    desc: Inspect and clear the local cache
+    contents:
+      - hmrc_cache_info
+      - hmrc_clear_cache
+
+  - title: Deprecated
+    desc: Renamed in v0.4.0; will be removed in v0.6.0
+    contents:
+      - deprecated
+
+  - title: Package
     contents:
       - hmrc-package
 
-  - title: "Data"
-    desc: "Reference data objects"
+  - title: Data
+    desc: Bundled reference data
     contents:
       - tax_heads
+      - catalogue

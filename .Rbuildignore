@@ -10,3 +10,5 @@
 ^IMPROVEMENT_PLAN\.md$
 ^llms-full\.txt$
 ^llms\.txt$
+^doc$
+^Meta$

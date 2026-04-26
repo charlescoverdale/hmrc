@@ -63,17 +63,17 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_tax_gap()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [773ms]
+#> ✔ Resolving download URL from GOV.UK Content API [719ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [1.3s]
+#> ✔ Downloading data file [1.2s]
 #> 
 #> ℹ Parsing data
-#> ✔ Parsing data [51ms]
+#> ✔ Parsing data [54ms]
 #> 
 #> # Measuring Tax Gaps
 #> # Source: https://www.gov.uk/government/statistics/measuring-tax-gaps-tables
-#> # Fetched 2026-04-26 13:11:40 UTC | Vintage: latest | Cells: estimates | Freq: annual | 34 rows x 7 cols
+#> # Fetched 2026-04-26 13:16:01 UTC | Vintage: latest | Cells: estimates | Freq: annual | 34 rows x 7 cols
 #> 
 #>    tax_year                                 tax
 #> 1   2023-24                     Corporation Tax
@@ -182,17 +182,17 @@ hmrc_tax_gap()
 #> 34                                 Total VAT     5.0        8.9      Medium
 hmrc_tax_gap(tax = "VAT")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [16ms]
+#> ✔ Resolving download URL from GOV.UK Content API [21ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
-#> ✔ Parsing data [47ms]
+#> ✔ Parsing data [55ms]
 #> 
 #> # Measuring Tax Gaps
 #> # Source: https://www.gov.uk/government/statistics/measuring-tax-gaps-tables
-#> # Fetched 2026-04-26 13:11:40 UTC | Vintage: latest | Cells: estimates | Freq: annual | 1 rows x 7 cols
+#> # Fetched 2026-04-26 13:16:01 UTC | Vintage: latest | Cells: estimates | Freq: annual | 1 rows x 7 cols
 #> 
 #>   tax_year tax taxpayer_type component gap_pct gap_gbp_bn uncertainty
 #> 1  2023-24 VAT     Total VAT Total VAT       5        8.9      Medium

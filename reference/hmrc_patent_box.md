@@ -69,10 +69,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_patent_box()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [604ms]
+#> ✔ Resolving download URL from GOV.UK Content API [169ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [681ms]
+#> ✔ Downloading data file [667ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -83,7 +83,7 @@ hmrc_patent_box()
 #> 
 #> # Patent Box reliefs statistics (Table 1)
 #> # Source: https://www.gov.uk/government/statistics/patent-box-reliefs-statistics
-#> # Fetched 2026-04-26 13:11:32 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 10 rows x 3 cols
+#> # Fetched 2026-04-26 13:15:51 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 10 rows x 3 cols
 #> 
 #>    tax_year companies relief_gbp_m
 #> 1   2013-14       835          376
@@ -98,7 +98,7 @@ hmrc_patent_box()
 #> 10  2022-23      1640         1449
 hmrc_patent_box(tax_year = "2022-23")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [17ms]
+#> ✔ Resolving download URL from GOV.UK Content API [21ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
@@ -108,11 +108,11 @@ hmrc_patent_box(tax_year = "2022-23")
 #> • `` -> `...1`
 #> • `` -> `...2`
 #> • `` -> `...3`
-#> ✔ Parsing data [42ms]
+#> ✔ Parsing data [41ms]
 #> 
 #> # Patent Box reliefs statistics (Table 1)
 #> # Source: https://www.gov.uk/government/statistics/patent-box-reliefs-statistics
-#> # Fetched 2026-04-26 13:11:32 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 1 rows x 3 cols
+#> # Fetched 2026-04-26 13:15:51 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 1 rows x 3 cols
 #> 
 #>   tax_year companies relief_gbp_m
 #> 1  2022-23      1640         1449

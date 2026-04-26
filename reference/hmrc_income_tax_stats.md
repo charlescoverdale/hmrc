@@ -63,10 +63,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_income_tax_stats()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [174ms]
+#> ✔ Resolving download URL from GOV.UK Content API [582ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [239ms]
+#> ✔ Downloading data file [761ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -129,11 +129,11 @@ hmrc_income_tax_stats()
 #> • `` -> `...12`
 #> • `` -> `...13`
 #> • `` -> `...14`
-#> ✔ Parsing data [454ms]
+#> ✔ Parsing data [431ms]
 #> 
 #> # Income Tax liabilities by income range (Table 2.5)
 #> # Source: https://www.gov.uk/government/statistics/income-tax-liabilities-by-income-range
-#> # Fetched 2026-04-26 13:11:26 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 48 rows x 8 cols
+#> # Fetched 2026-04-26 13:15:45 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 48 rows x 8 cols
 #> 
 #>    tax_year income_range income_lower_gbp taxpayers_thousands
 #> 1   2022-23        12570            12570                2870
@@ -235,7 +235,7 @@ hmrc_income_tax_stats()
 #> 48            1730000              323000             18.7            8270
 hmrc_income_tax_stats(tax_year = "2023-24")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [25ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
@@ -301,11 +301,11 @@ hmrc_income_tax_stats(tax_year = "2023-24")
 #> • `` -> `...12`
 #> • `` -> `...13`
 #> • `` -> `...14`
-#> ✔ Parsing data [474ms]
+#> ✔ Parsing data [449ms]
 #> 
 #> # Income Tax liabilities by income range (Table 2.5)
 #> # Source: https://www.gov.uk/government/statistics/income-tax-liabilities-by-income-range
-#> # Fetched 2026-04-26 13:11:27 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 12 rows x 8 cols
+#> # Fetched 2026-04-26 13:15:46 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 12 rows x 8 cols
 #> 
 #>    tax_year income_range income_lower_gbp taxpayers_thousands
 #> 1   2023-24        12570            12570                2960

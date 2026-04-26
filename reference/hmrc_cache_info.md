@@ -34,7 +34,7 @@ Other infrastructure:
 op <- options(hmrc.cache_dir = tempdir())
 info <- hmrc_cache_info()
 attr(info, "cache_dir")
-#> [1] "/tmp/Rtmp37HDon"
+#> [1] "/tmp/Rtmp6aonek"
 options(op)
 # }
 ```

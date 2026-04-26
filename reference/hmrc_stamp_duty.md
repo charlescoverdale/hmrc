@@ -56,10 +56,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_stamp_duty()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [611ms]
+#> ✔ Resolving download URL from GOV.UK Content API [746ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [1.3s]
+#> ✔ Downloading data file [1.2s]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -75,7 +75,7 @@ hmrc_stamp_duty()
 #> 
 #> # UK Stamp Tax statistics
 #> # Source: https://www.gov.uk/government/statistics/uk-stamp-tax-statistics
-#> # Fetched 2026-04-26 13:11:37 UTC | Vintage: latest | Cells: cash | Freq: annual | 132 rows x 4 cols
+#> # Fetched 2026-04-26 13:15:58 UTC | Vintage: latest | Cells: cash | Freq: annual | 132 rows x 4 cols
 #> 
 #>     tax_year          type                         description receipts_gbp_m
 #> 1    2003-04   sdlt_leases                  SDLT on new leases            405
@@ -212,7 +212,7 @@ hmrc_stamp_duty()
 #> 132  2024-25         total                   Total stamp taxes           4320
 hmrc_stamp_duty(type = "sdlt_total")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [17ms]
+#> ✔ Resolving download URL from GOV.UK Content API [21ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
@@ -231,7 +231,7 @@ hmrc_stamp_duty(type = "sdlt_total")
 #> 
 #> # UK Stamp Tax statistics
 #> # Source: https://www.gov.uk/government/statistics/uk-stamp-tax-statistics
-#> # Fetched 2026-04-26 13:11:38 UTC | Vintage: latest | Cells: cash | Freq: annual | 22 rows x 4 cols
+#> # Fetched 2026-04-26 13:15:58 UTC | Vintage: latest | Cells: cash | Freq: annual | 22 rows x 4 cols
 #> 
 #>    tax_year       type description receipts_gbp_m
 #> 1   2003-04 sdlt_total  SDLT total           4985

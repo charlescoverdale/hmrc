@@ -117,7 +117,7 @@ payments and repayments rather than the import VAT column.</p>
 <span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>hmrc.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">hmrc_vat</span><span class="op">(</span>measure <span class="op">=</span> <span class="st">"total"</span>, start <span class="op">=</span> <span class="st">"2010-01"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Resolving download URL from GOV.UK Content API</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Resolving download URL from GOV.UK Content API <span style="color: #B2B2B2;">[771ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Resolving download URL from GOV.UK Content API <span style="color: #B2B2B2;">[587ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading data file</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloading data file <span style="color: #B2B2B2;">[1.1s]</span></span>
@@ -130,11 +130,11 @@ payments and repayments rather than the import VAT column.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `` -&gt; `...4`</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `` -&gt; `...5`</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `` -&gt; `...6`</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Parsing data <span style="color: #B2B2B2;">[94ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Parsing data <span style="color: #B2B2B2;">[96ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # VAT annual statistics (monthly receipts)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # Source: https://www.gov.uk/government/statistics/value-added-tax-vat-annual-statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> # Fetched 2026-04-26 13:11:47 UTC | Vintage: latest | Cells: cash | Freq: monthly | 189 rows x 4 cols</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Fetched 2026-04-26 13:16:07 UTC | Vintage: latest | Cells: cash | Freq: monthly | 189 rows x 4 cols</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           date measure        description receipts_gbp_m</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   2010-01-01   total Total VAT receipts           8230</span>
@@ -328,7 +328,7 @@ payments and repayments rather than the import VAT column.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 189 2025-09-01   total Total VAT receipts           9920</span>
 <span class="r-in"><span><span class="fu">hmrc_vat</span><span class="op">(</span>start <span class="op">=</span> <span class="st">"2020-01"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Resolving download URL from GOV.UK Content API</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Resolving download URL from GOV.UK Content API <span style="color: #B2B2B2;">[17ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Resolving download URL from GOV.UK Content API <span style="color: #B2B2B2;">[21ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using cached file</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached file <span style="color: #B2B2B2;">[6ms]</span></span>
@@ -341,11 +341,11 @@ payments and repayments rather than the import VAT column.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `` -&gt; `...4`</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `` -&gt; `...5`</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `` -&gt; `...6`</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Parsing data <span style="color: #B2B2B2;">[101ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Parsing data <span style="color: #B2B2B2;">[104ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # VAT annual statistics (monthly receipts)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # Source: https://www.gov.uk/government/statistics/value-added-tax-vat-annual-statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> # Fetched 2026-04-26 13:11:48 UTC | Vintage: latest | Cells: cash | Freq: monthly | 345 rows x 4 cols</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Fetched 2026-04-26 13:16:08 UTC | Vintage: latest | Cells: cash | Freq: monthly | 345 rows x 4 cols</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           date    measure        description receipts_gbp_m</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   2020-01-01   home_vat           Home VAT          12000</span>

@@ -74,10 +74,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_property_transactions()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [325ms]
+#> ✔ Resolving download URL from GOV.UK Content API [721ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [206ms]
+#> ✔ Downloading data file [923ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -96,11 +96,11 @@ hmrc_property_transactions()
 #> • `` -> `...5`
 #> • `` -> `...6`
 #> • `` -> `...7`
-#> ✔ Parsing data [177ms]
+#> ✔ Parsing data [191ms]
 #> 
 #> # Monthly UK property transactions
 #> # Source: https://www.gov.uk/government/statistics/monthly-property-transactions-completed-in-the-uk-with-value-40000-or-above
-#> # Fetched 2026-04-26 13:11:33 UTC | Vintage: latest | Cells: counts | Freq: monthly | 2,510 rows x 4 cols
+#> # Fetched 2026-04-26 13:15:53 UTC | Vintage: latest | Cells: counts | Freq: monthly | 2,510 rows x 4 cols
 #> 
 #>            date           nation            type transactions
 #> 1    2005-04-01          england non_residential         9200
@@ -2616,7 +2616,7 @@ hmrc_property_transactions()
 hmrc_property_transactions(type = "residential", nation = "england",
                            start = "2020-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [23ms]
+#> ✔ Resolving download URL from GOV.UK Content API [22ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
@@ -2638,11 +2638,11 @@ hmrc_property_transactions(type = "residential", nation = "england",
 #> • `` -> `...5`
 #> • `` -> `...6`
 #> • `` -> `...7`
-#> ✔ Parsing data [172ms]
+#> ✔ Parsing data [183ms]
 #> 
 #> # Monthly UK property transactions
 #> # Source: https://www.gov.uk/government/statistics/monthly-property-transactions-completed-in-the-uk-with-value-40000-or-above
-#> # Fetched 2026-04-26 13:11:33 UTC | Vintage: latest | Cells: counts | Freq: monthly | 74 rows x 4 cols
+#> # Fetched 2026-04-26 13:15:53 UTC | Vintage: latest | Cells: counts | Freq: monthly | 74 rows x 4 cols
 #> 
 #>          date  nation        type transactions
 #> 1  2020-01-01 england residential        71030

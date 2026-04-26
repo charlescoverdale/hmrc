@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use the hmrc R package, please cite it as below."
+type: software
+title: "hmrc: Download and Tidy HMRC Statistical Data"
+abstract: >
+  An R package that downloads, parses, and tidies statistical data published
+  by HM Revenue and Customs (HMRC) on GOV.UK. Provides reproducible access
+  to monthly tax receipts and NICs, VAT, fuel and tobacco duties, Corporation
+  Tax, Stamp Duty, R&D credits, Income Tax liabilities by income range, the
+  tax gap, and monthly property transactions. Returns annotated hmrc_tbl
+  data frames with provenance metadata (source URL, fetch time, vintage,
+  cell methods) suitable for reproducible fiscal research.
+authors:
+  - given-names: Charles
+    family-names: Coverdale
+    email: charles.f.coverdale@gmail.com
+    city: London
+    country: GB
+keywords:
+  - HMRC
+  - UK tax
+  - public finance
+  - fiscal data
+  - reproducible research
+  - econometrics
+license: MIT
+repository-code: "https://github.com/charlescoverdale/hmrc"
+url: "https://charlescoverdale.github.io/hmrc/"
+version: 0.4.0
+date-released: "2026-04-26"

@@ -1,8 +1,21 @@
+citHeader("To cite the hmrc package in publications use:")
+
 bibentry(
-  bibtype = "Manual",
-  title   = "hmrc: Access UK Tax and Revenue Data from HMRC",
-  author  = person("Charles", "Coverdale"),
-  year    = "2026",
-  note    = "R package version 0.3.0",
-  url     = "https://github.com/charlescoverdale/hmrc"
+  bibtype  = "Manual",
+  title    = "hmrc: Download and Tidy HMRC Statistical Data",
+  author   = person("Charles", "Coverdale",
+                    email = "charles.f.coverdale@gmail.com",
+                    role  = c("aut", "cre")),
+  year     = format(Sys.Date(), "%Y"),
+  note     = sprintf("R package version %s",
+                     utils::packageVersion("hmrc")),
+  url      = "https://CRAN.R-project.org/package=hmrc",
+  textVersion = paste0(
+    "Coverdale, C. (",
+    format(Sys.Date(), "%Y"),
+    "). hmrc: Download and Tidy HMRC Statistical Data. ",
+    "R package version ",
+    utils::packageVersion("hmrc"),
+    ". https://CRAN.R-project.org/package=hmrc"
+  )
 )

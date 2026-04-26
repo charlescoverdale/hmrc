@@ -6,3 +6,7 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^CITATION\.cff$
+^IMPROVEMENT_PLAN\.md$
+^llms-full\.txt$
+^llms\.txt$

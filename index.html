@@ -99,78 +99,78 @@
 <col width="33%">
 <col width="33%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Function</th>
 <th>Description</th>
 <th>Time series</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_tax_receipts.html">hmrc_tax_receipts()</a></code></td>
 <td>Monthly cash receipts for 41 tax heads (Income Tax, NICs, VAT, CT, duties, etc.)</td>
 <td>Apr 2008 onwards</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_vat.html">hmrc_vat()</a></code></td>
 <td>Monthly VAT receipts (payments, repayments, import VAT, home VAT)</td>
 <td>Apr 1973 onwards</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_fuel_duties.html">hmrc_fuel_duties()</a></code></td>
 <td>Monthly hydrocarbon oil duty receipts (petrol, diesel, other)</td>
 <td>Jan 1990 onwards</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_tobacco_duties.html">hmrc_tobacco_duties()</a></code></td>
 <td>Monthly tobacco duty receipts (cigarettes, cigars, hand-rolling, other)</td>
 <td>Jan 1991 onwards</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_corporation_tax.html">hmrc_corporation_tax()</a></code></td>
 <td>Annual CT receipts by levy (onshore, offshore, Bank Levy, RPDT, EPL, EGL)</td>
 <td>2019-20 onwards</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_stamp_duty.html">hmrc_stamp_duty()</a></code></td>
 <td>Annual stamp duty receipts (SDLT, SDRT, stamp duty on documents)</td>
 <td>2003-04 onwards</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_rd_credits.html">hmrc_rd_credits()</a></code></td>
 <td>Annual R&amp;D tax credit claims and cost (SME and RDEC schemes)</td>
 <td>2000-01 onwards</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_tax_gap.html">hmrc_tax_gap()</a></code></td>
 <td>Cross-sectional tax gap estimates by tax type, taxpayer group, behaviour</td>
 <td>Most recent year</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_income_tax_stats.html">hmrc_income_tax_stats()</a></code></td>
 <td>Annual Income Tax liabilities by income range (Table 2.5)</td>
 <td>2022-23 onwards</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_property_transactions.html">hmrc_property_transactions()</a></code></td>
 <td>Monthly residential and non-residential transactions by UK nation</td>
 <td>Apr 2005 onwards</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_capital_gains.html">hmrc_capital_gains()</a></code></td>
 <td>Annual CGT taxpayers, gains, and tax liabilities (Table 1)</td>
 <td>1987-88 onwards</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_inheritance_tax.html">hmrc_inheritance_tax()</a></code></td>
 <td>IHT estates, tax due, average tax, and effective rate by net-estate band</td>
 <td>Latest year of death</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_patent_box.html">hmrc_patent_box()</a></code></td>
 <td>Annual companies electing into the Patent Box and total relief</td>
 <td>2013-14 onwards</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_creative_industries.html">hmrc_creative_industries()</a></code></td>
 <td>Annual reliefs across eight creative-industries sectors</td>
 <td>Sector-dependent</td>
@@ -186,32 +186,32 @@
 <col width="50%">
 <col width="50%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Function</th>
 <th>Description</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_search.html">hmrc_search()</a></code></td>
 <td>Keyword search of the dataset catalogue</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_publications.html">hmrc_publications()</a></code></td>
 <td>Index of implemented and planned publications</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_list_tax_heads.html">hmrc_list_tax_heads()</a></code></td>
 <td>Lookup table of 41 tax-receipts identifiers (no download required)</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_meta.html">hmrc_meta()</a></code></td>
 <td>Extract provenance metadata from any <code>hmrc_tbl</code> result</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code><a href="reference/hmrc_cache_info.html">hmrc_cache_info()</a></code></td>
 <td>Inspect locally cached files</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code><a href="reference/hmrc_clear_cache.html">hmrc_clear_cache()</a></code></td>
 <td>Delete locally cached files</td>
 </tr>
@@ -577,104 +577,45 @@
 <div class="section level2">
 <h2 id="related-packages">Related packages<a class="anchor" aria-label="anchor" href="#related-packages"></a>
 </h2>
-<p>This package is part of a suite of R packages for economic, financial, and policy data. They share a consistent interface (named functions, tidy data frames, local caching, provenance metadata) and are designed to work together.</p>
-<p><strong>Data access:</strong></p>
 <table class="table">
 <colgroup>
 <col width="50%">
 <col width="50%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Package</th>
-<th>Source</th>
+<th>Description</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><a href="https://github.com/charlescoverdale/ons" class="external-link"><code>ons</code></a></td>
-<td>UK Office for National Statistics</td>
+<td>UK Office for National Statistics data</td>
 </tr>
-<tr class="even">
-<td><a href="https://github.com/charlescoverdale/boe" class="external-link"><code>boe</code></a></td>
-<td>Bank of England</td>
-</tr>
-<tr class="odd">
+<tr>
 <td><a href="https://github.com/charlescoverdale/obr" class="external-link"><code>obr</code></a></td>
-<td>Office for Budget Responsibility</td>
+<td>Office for Budget Responsibility fiscal forecasts</td>
 </tr>
-<tr class="even">
+<tr>
+<td><a href="https://github.com/charlescoverdale/boe" class="external-link"><code>boe</code></a></td>
+<td>Bank of England data</td>
+</tr>
+<tr>
 <td><a href="https://github.com/charlescoverdale/ukhousing" class="external-link"><code>ukhousing</code></a></td>
-<td>UK Land Registry, EPC, Planning</td>
+<td>UK Land Registry, EPC, and planning data</td>
 </tr>
-<tr class="odd">
-<td><a href="https://github.com/charlescoverdale/fred" class="external-link"><code>fred</code></a></td>
-<td>US Federal Reserve (FRED)</td>
+<tr>
+<td><a href="https://github.com/charlescoverdale/ato" class="external-link"><code>ato</code></a></td>
+<td>Australian Taxation Office data (counterpart)</td>
 </tr>
-<tr class="even">
-<td><a href="https://github.com/charlescoverdale/readecb" class="external-link"><code>readecb</code></a></td>
-<td>European Central Bank</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/charlescoverdale/readoecd" class="external-link"><code>readoecd</code></a></td>
-<td>OECD</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/charlescoverdale/readnoaa" class="external-link"><code>readnoaa</code></a></td>
-<td>NOAA Climate Data</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/charlescoverdale/readaec" class="external-link"><code>readaec</code></a></td>
-<td>Australian Electoral Commission</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/charlescoverdale/comtrade" class="external-link"><code>comtrade</code></a></td>
-<td>UN Comtrade</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/charlescoverdale/carbondata" class="external-link"><code>carbondata</code></a></td>
-<td>Carbon markets (EU ETS, UK ETS, voluntary registries)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Analytical toolkits:</strong></p>
-<table class="table">
-<colgroup>
-<col width="50%">
-<col width="50%">
-</colgroup>
-<thead><tr class="header">
-<th>Package</th>
-<th>Purpose</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
+<tr>
 <td><a href="https://github.com/charlescoverdale/inflateR" class="external-link"><code>inflateR</code></a></td>
-<td>Inflation adjustment for price series</td>
+<td>Inflation adjustment for UK price series</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="https://github.com/charlescoverdale/inflationkit" class="external-link"><code>inflationkit</code></a></td>
 <td>Inflation analysis (decomposition, persistence, Phillips curve)</td>
 </tr>
-<tr class="odd">
-<td><a href="https://github.com/charlescoverdale/yieldcurves" class="external-link"><code>yieldcurves</code></a></td>
-<td>Yield curve fitting (Nelson-Siegel, Svensson)</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/charlescoverdale/debtkit" class="external-link"><code>debtkit</code></a></td>
-<td>Debt sustainability analysis</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/charlescoverdale/nowcast" class="external-link"><code>nowcast</code></a></td>
-<td>Economic nowcasting</td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/charlescoverdale/predictset" class="external-link"><code>predictset</code></a></td>
-<td>Conformal prediction</td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/charlescoverdale/climatekit" class="external-link"><code>climatekit</code></a></td>
-<td>Climate indices</td>
-</tr>
-<tr class="even">
+<tr>
 <td><a href="https://github.com/charlescoverdale/inequality" class="external-link"><code>inequality</code></a></td>
 <td>Inequality and poverty measurement</td>
 </tr>

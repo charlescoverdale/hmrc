@@ -67,10 +67,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_rd_credits()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [728ms]
+#> ✔ Resolving download URL from GOV.UK Content API [129ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [626ms]
+#> ✔ Downloading data file [561ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -101,11 +101,11 @@ hmrc_rd_credits()
 #> • `` -> `...9`
 #> • `` -> `...10`
 #> • `` -> `...11`
-#> ✔ Parsing data [219ms]
+#> ✔ Parsing data [218ms]
 #> 
 #> # R&D Tax Credits Statistics
 #> # Source: https://www.gov.uk/government/statistics/corporate-tax-research-and-development-tax-credit
-#> # Fetched 2026-04-26 13:15:55 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 144 rows x 5 cols
+#> # Fetched 2026-05-04 19:13:21 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 144 rows x 5 cols
 #> 
 #>     tax_year scheme                   description      measure value
 #> 1    2000-01   rdec R&D Expenditure Credit (RDEC) amount_gbp_m    NA
@@ -254,10 +254,10 @@ hmrc_rd_credits()
 #> 144  2023-24  total               All R&D schemes       claims 46950
 hmrc_rd_credits(scheme = "sme", measure = "claims")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [20ms]
+#> ✔ Resolving download URL from GOV.UK Content API [14ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [11ms]
+#> ✔ Using cached file [6ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -288,11 +288,11 @@ hmrc_rd_credits(scheme = "sme", measure = "claims")
 #> • `` -> `...9`
 #> • `` -> `...10`
 #> • `` -> `...11`
-#> ✔ Parsing data [219ms]
+#> ✔ Parsing data [217ms]
 #> 
 #> # R&D Tax Credits Statistics
 #> # Source: https://www.gov.uk/government/statistics/corporate-tax-research-and-development-tax-credit
-#> # Fetched 2026-04-26 13:15:56 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 24 rows x 5 cols
+#> # Fetched 2026-05-04 19:13:21 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 24 rows x 5 cols
 #> 
 #>    tax_year scheme    description measure value
 #> 1   2000-01    sme SME R&D Relief  claims  1860

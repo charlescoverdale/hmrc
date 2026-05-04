@@ -98,19 +98,19 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_creative_industries(sector = "film")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✖ Resolving download URL from GOV.UK Content API [963ms]
+#> ✖ Resolving download URL from GOV.UK Content API [213ms]
 #> 
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✖ Resolving download URL from GOV.UK Content API [926ms]
+#> ✖ Resolving download URL from GOV.UK Content API [720ms]
 #> 
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✖ Resolving download URL from GOV.UK Content API [916ms]
+#> ✖ Resolving download URL from GOV.UK Content API [695ms]
 #> 
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [728ms]
+#> ✔ Resolving download URL from GOV.UK Content API [233ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [756ms]
+#> ✔ Downloading data file [607ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -169,11 +169,11 @@ hmrc_creative_industries(sector = "film")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [519ms]
+#> ✔ Parsing data [513ms]
 #> 
 #> # Creative Industries tax relief statistics (Table 1)
 #> # Source: https://www.gov.uk/government/statistics/creative-industries-statistics-august-2025
-#> # Fetched 2026-04-26 13:15:39 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 18 rows x 7 cols
+#> # Fetched 2026-05-04 19:13:09 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 18 rows x 7 cols
 #> 
 #>    sector tax_year companies claims productions relief_gbp_m
 #> 1    film  2006-07        55     60          55           65
@@ -215,16 +215,16 @@ hmrc_creative_industries(sector = "film")
 #> 18          Provisional
 hmrc_creative_industries(tax_year = "2023-24")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✖ Resolving download URL from GOV.UK Content API [43ms]
+#> ✖ Resolving download URL from GOV.UK Content API [38ms]
 #> 
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✖ Resolving download URL from GOV.UK Content API [46ms]
+#> ✖ Resolving download URL from GOV.UK Content API [39ms]
 #> 
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✖ Resolving download URL from GOV.UK Content API [43ms]
+#> ✖ Resolving download URL from GOV.UK Content API [37ms]
 #> 
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [14ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
@@ -286,11 +286,11 @@ hmrc_creative_industries(tax_year = "2023-24")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [516ms]
+#> ✔ Parsing data [512ms]
 #> 
 #> # Creative Industries tax relief statistics (Table 1)
 #> # Source: https://www.gov.uk/government/statistics/creative-industries-statistics-august-2025
-#> # Fetched 2026-04-26 13:15:40 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 8 rows x 7 cols
+#> # Fetched 2026-05-04 19:13:09 UTC | Vintage: latest | Cells: counts/cash | Freq: annual | 8 rows x 7 cols
 #> 
 #>         sector tax_year companies claims productions relief_gbp_m      status
 #> 1    animation  2023-24       105    120          NA           33 Provisional

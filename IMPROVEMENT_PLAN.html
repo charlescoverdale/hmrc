@@ -60,40 +60,40 @@
 </ul></div>
 <div class="section level3">
 <h3 id="id_12-architectural-gaps-vs-the-authors-own-boe-and-fred-packages">1.2 Architectural gaps vs the author’s own <code>boe</code> and <code>fred</code> packages<a class="anchor" aria-label="anchor" href="#id_12-architectural-gaps-vs-the-authors-own-boe-and-fred-packages"></a></h3>
-<table class="table"><colgroup><col width="16%"><col width="24%"><col width="33%"><col width="24%"></colgroup><thead><tr class="header"><th>Feature</th>
+<table class="table"><colgroup><col width="16%"><col width="24%"><col width="33%"><col width="24%"></colgroup><thead><tr><th>Feature</th>
 <th>hmrc v0.3.3</th>
 <th>boe v0.1.2.9000</th>
 <th>fred v0.2.0</th>
-</tr></thead><tbody><tr class="odd"><td>Prefix consistency (<code>pkg_*</code>)</td>
+</tr></thead><tbody><tr><td>Prefix consistency (<code>pkg_*</code>)</td>
 <td>get_*</td>
 <td>boe_*</td>
 <td>fred_*</td>
-</tr><tr class="even"><td>S3 class with provenance</td>
+</tr><tr><td>S3 class with provenance</td>
 <td>none</td>
 <td><code>boe_tbl</code></td>
 <td><code>fred_tbl</code></td>
-</tr><tr class="odd"><td>
+</tr><tr><td>
 <code>*_search()</code> for catalogue browsing</td>
 <td>missing</td>
 <td>yes</td>
 <td>implied via docs</td>
-</tr><tr class="even"><td><code>*_cache_info()</code></td>
+</tr><tr><td><code>*_cache_info()</code></td>
 <td>missing</td>
 <td>yes</td>
 <td>yes</td>
-</tr><tr class="odd"><td>Vintage / as-of queries</td>
+</tr><tr><td>Vintage / as-of queries</td>
 <td>missing</td>
 <td>yes (<code>vintage=</code>)</td>
 <td>yes (<code>fred_as_of</code>)</td>
-</tr><tr class="even"><td>First-release retrieval</td>
+</tr><tr><td>First-release retrieval</td>
 <td>missing</td>
 <td>n/a</td>
 <td><code>fred_first_release</code></td>
-</tr><tr class="odd"><td>CITATION / DOI</td>
+</tr><tr><td>CITATION / DOI</td>
 <td>none</td>
 <td>tbd</td>
 <td>tbd</td>
-</tr><tr class="even"><td>JOSS paper</td>
+</tr><tr><td>JOSS paper</td>
 <td>none</td>
 <td>planned</td>
 <td>planned</td>
@@ -376,25 +376,25 @@
 <h2 id="id_6-documentation-strategy">6. Documentation strategy<a class="anchor" aria-label="anchor" href="#id_6-documentation-strategy"></a></h2>
 <div class="section level3">
 <h3 id="id_61-vignette-portfolio-final">6.1 Vignette portfolio (final)<a class="anchor" aria-label="anchor" href="#id_61-vignette-portfolio-final"></a></h3>
-<table class="table"><colgroup><col width="35%"><col width="28%"><col width="35%"></colgroup><thead><tr class="header"><th>Vignette</th>
+<table class="table"><colgroup><col width="35%"><col width="28%"><col width="35%"></colgroup><thead><tr><th>Vignette</th>
 <th>Length</th>
 <th>Audience</th>
-</tr></thead><tbody><tr class="odd"><td>Getting started</td>
+</tr></thead><tbody><tr><td>Getting started</td>
 <td>short</td>
 <td>first-time users</td>
-</tr><tr class="even"><td>Reproducible fiscal analysis with vintages</td>
+</tr><tr><td>Reproducible fiscal analysis with vintages</td>
 <td>long</td>
 <td>academic econometricians</td>
-</tr><tr class="odd"><td>HMRC ↔︎ OBR ↔︎ ONS bridge</td>
+</tr><tr><td>HMRC ↔︎ OBR ↔︎ ONS bridge</td>
 <td>medium</td>
 <td>HMT / OBR analysts</td>
-</tr><tr class="even"><td>Tax incidence with SPI</td>
+</tr><tr><td>Tax incidence with SPI</td>
 <td>medium</td>
 <td>IFS / RF distributional analysts</td>
-</tr><tr class="odd"><td>Green Book CBA in R</td>
+</tr><tr><td>Green Book CBA in R</td>
 <td>medium</td>
 <td>HMT / consultancy CBA practitioners</td>
-</tr><tr class="even"><td>PAYE RTI labour-market toolkit</td>
+</tr><tr><td>PAYE RTI labour-market toolkit</td>
 <td>medium</td>
 <td>labour economists</td>
 </tr></tbody></table></div>
@@ -448,39 +448,39 @@
 </div>
 <div class="section level2">
 <h2 id="id_8-risk-register">8. Risk register<a class="anchor" aria-label="anchor" href="#id_8-risk-register"></a></h2>
-<table class="table"><colgroup><col width="16%"><col width="30%"><col width="22%"><col width="30%"></colgroup><thead><tr class="header"><th>Risk</th>
+<table class="table"><colgroup><col width="16%"><col width="30%"><col width="22%"><col width="30%"></colgroup><thead><tr><th>Risk</th>
 <th>Likelihood</th>
 <th>Impact</th>
 <th>Mitigation</th>
-</tr></thead><tbody><tr class="odd"><td>HMRC restructures gov.uk publication URLs</td>
+</tr></thead><tbody><tr><td>HMRC restructures gov.uk publication URLs</td>
 <td>Medium</td>
 <td>High</td>
 <td>Already mitigated by Content API resolution; add monitoring action.</td>
-</tr><tr class="even"><td>Data revisions invalidate cached results</td>
+</tr><tr><td>Data revisions invalidate cached results</td>
 <td>High</td>
 <td>Medium</td>
 <td>Vintage support (Phase 4) makes revisions a feature not a bug.</td>
-</tr><tr class="odd"><td>Scope creep into microsim</td>
+</tr><tr><td>Scope creep into microsim</td>
 <td>Medium</td>
 <td>High</td>
 <td>Hard boundary documented (§2.4). PolicyEngine UK does microsim; we wrap data.</td>
-</tr><tr class="even"><td>Maintenance burden grows with 32 exports</td>
+</tr><tr><td>Maintenance burden grows with 32 exports</td>
 <td>High</td>
 <td>Medium</td>
 <td>Automated URL-health GitHub Action; quarterly catalogue refresh; modular per-dataset tests.</td>
-</tr><tr class="odd"><td>JOSS reviewers reject for insufficient novelty</td>
+</tr><tr><td>JOSS reviewers reject for insufficient novelty</td>
 <td>Medium</td>
 <td>Medium</td>
 <td>Frame as “research infrastructure” not “novel methodology”; cite RAP strategy and RFS code policy.</td>
-</tr><tr class="even"><td>Wayback snapshots are sparse for some datasets</td>
+</tr><tr><td>Wayback snapshots are sparse for some datasets</td>
 <td>Medium</td>
 <td>Low</td>
 <td>Document coverage in <code>hmrc_vintages_available</code>; fall back to gov.uk’s own attachment versioning where present.</td>
-</tr><tr class="odd"><td>User base too small to dethrone hand-scraping</td>
+</tr><tr><td>User base too small to dethrone hand-scraping</td>
 <td>Medium</td>
 <td>High</td>
 <td>Treasury RAP strategy is a tailwind; success of <code>boe</code>/<code>ons</code>/<code>obr</code> shows path.</td>
-</tr><tr class="even"><td>HMRC API Developer Hub rate limits if we add operational endpoints</td>
+</tr><tr><td>HMRC API Developer Hub rate limits if we add operational endpoints</td>
 <td>Low</td>
 <td>Low</td>
 <td>Phase 6 explicitly excludes operational APIs.</td>

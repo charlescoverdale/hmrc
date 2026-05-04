@@ -62,6 +62,7 @@ so subsequent calls are instant. Every result is returned as an
 vintage, cell methods) for reproducible fiscal research.
 
 ``` r
+
 library(hmrc)
 hmrc_tax_receipts()
 ```
@@ -71,6 +72,7 @@ hmrc_tax_receipts()
 ## Installation
 
 ``` r
+
 install.packages("hmrc")
 
 # Or install the development version from GitHub
@@ -84,33 +86,33 @@ devtools::install_github("charlescoverdale/hmrc")
 
 ### Data fetchers
 
-| Function                                                                                                          | Description                                                                      | Time series          |
-|-------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------|
-| [`hmrc_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_receipts.md)                   | Monthly cash receipts for 41 tax heads (Income Tax, NICs, VAT, CT, duties, etc.) | Apr 2008 onwards     |
-| [`hmrc_vat()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_vat.md)                                     | Monthly VAT receipts (payments, repayments, import VAT, home VAT)                | Apr 1973 onwards     |
-| [`hmrc_fuel_duties()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_fuel_duties.md)                     | Monthly hydrocarbon oil duty receipts (petrol, diesel, other)                    | Jan 1990 onwards     |
-| [`hmrc_tobacco_duties()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tobacco_duties.md)               | Monthly tobacco duty receipts (cigarettes, cigars, hand-rolling, other)          | Jan 1991 onwards     |
-| [`hmrc_corporation_tax()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_corporation_tax.md)             | Annual CT receipts by levy (onshore, offshore, Bank Levy, RPDT, EPL, EGL)        | 2019-20 onwards      |
-| [`hmrc_stamp_duty()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_stamp_duty.md)                       | Annual stamp duty receipts (SDLT, SDRT, stamp duty on documents)                 | 2003-04 onwards      |
-| [`hmrc_rd_credits()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_rd_credits.md)                       | Annual R&D tax credit claims and cost (SME and RDEC schemes)                     | 2000-01 onwards      |
-| [`hmrc_tax_gap()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_gap.md)                             | Cross-sectional tax gap estimates by tax type, taxpayer group, behaviour         | Most recent year     |
-| [`hmrc_income_tax_stats()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_income_tax_stats.md)           | Annual Income Tax liabilities by income range (Table 2.5)                        | 2022-23 onwards      |
-| [`hmrc_property_transactions()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_property_transactions.md) | Monthly residential and non-residential transactions by UK nation                | Apr 2005 onwards     |
-| [`hmrc_capital_gains()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_capital_gains.md)                 | Annual CGT taxpayers, gains, and tax liabilities (Table 1)                       | 1987-88 onwards      |
-| [`hmrc_inheritance_tax()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_inheritance_tax.md)             | IHT estates, tax due, average tax, and effective rate by net-estate band         | Latest year of death |
-| [`hmrc_patent_box()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_patent_box.md)                       | Annual companies electing into the Patent Box and total relief                   | 2013-14 onwards      |
-| [`hmrc_creative_industries()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_creative_industries.md)     | Annual reliefs across eight creative-industries sectors                          | Sector-dependent     |
+| Function | Description | Time series |
+|----|----|----|
+| [`hmrc_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_receipts.md) | Monthly cash receipts for 41 tax heads (Income Tax, NICs, VAT, CT, duties, etc.) | Apr 2008 onwards |
+| [`hmrc_vat()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_vat.md) | Monthly VAT receipts (payments, repayments, import VAT, home VAT) | Apr 1973 onwards |
+| [`hmrc_fuel_duties()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_fuel_duties.md) | Monthly hydrocarbon oil duty receipts (petrol, diesel, other) | Jan 1990 onwards |
+| [`hmrc_tobacco_duties()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tobacco_duties.md) | Monthly tobacco duty receipts (cigarettes, cigars, hand-rolling, other) | Jan 1991 onwards |
+| [`hmrc_corporation_tax()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_corporation_tax.md) | Annual CT receipts by levy (onshore, offshore, Bank Levy, RPDT, EPL, EGL) | 2019-20 onwards |
+| [`hmrc_stamp_duty()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_stamp_duty.md) | Annual stamp duty receipts (SDLT, SDRT, stamp duty on documents) | 2003-04 onwards |
+| [`hmrc_rd_credits()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_rd_credits.md) | Annual R&D tax credit claims and cost (SME and RDEC schemes) | 2000-01 onwards |
+| [`hmrc_tax_gap()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_gap.md) | Cross-sectional tax gap estimates by tax type, taxpayer group, behaviour | Most recent year |
+| [`hmrc_income_tax_stats()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_income_tax_stats.md) | Annual Income Tax liabilities by income range (Table 2.5) | 2022-23 onwards |
+| [`hmrc_property_transactions()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_property_transactions.md) | Monthly residential and non-residential transactions by UK nation | Apr 2005 onwards |
+| [`hmrc_capital_gains()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_capital_gains.md) | Annual CGT taxpayers, gains, and tax liabilities (Table 1) | 1987-88 onwards |
+| [`hmrc_inheritance_tax()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_inheritance_tax.md) | IHT estates, tax due, average tax, and effective rate by net-estate band | Latest year of death |
+| [`hmrc_patent_box()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_patent_box.md) | Annual companies electing into the Patent Box and total relief | 2013-14 onwards |
+| [`hmrc_creative_industries()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_creative_industries.md) | Annual reliefs across eight creative-industries sectors | Sector-dependent |
 
 ### Discovery and infrastructure
 
-| Function                                                                                            | Description                                                        |
-|-----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| [`hmrc_search()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_search.md)                 | Keyword search of the dataset catalogue                            |
-| [`hmrc_publications()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_publications.md)     | Index of implemented and planned publications                      |
+| Function | Description |
+|----|----|
+| [`hmrc_search()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_search.md) | Keyword search of the dataset catalogue |
+| [`hmrc_publications()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_publications.md) | Index of implemented and planned publications |
 | [`hmrc_list_tax_heads()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_list_tax_heads.md) | Lookup table of 41 tax-receipts identifiers (no download required) |
-| [`hmrc_meta()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_meta.md)                     | Extract provenance metadata from any `hmrc_tbl` result             |
-| [`hmrc_cache_info()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_cache_info.md)         | Inspect locally cached files                                       |
-| [`hmrc_clear_cache()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_clear_cache.md)       | Delete locally cached files                                        |
+| [`hmrc_meta()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_meta.md) | Extract provenance metadata from any `hmrc_tbl` result |
+| [`hmrc_cache_info()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_cache_info.md) | Inspect locally cached files |
+| [`hmrc_clear_cache()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_clear_cache.md) | Delete locally cached files |
 
 The pre-0.4.0 `get_*` names continue to work as deprecated aliases; they
 emit a one-time-per-session warning and will be removed in v0.6.0.
@@ -122,6 +124,7 @@ emit a one-time-per-session warning and will be removed in v0.6.0.
 ### `hmrc_tax_receipts()` — monthly tax head receipts
 
 ``` r
+
 library(hmrc)
 
 # Most recent month's receipts, ranked by size
@@ -146,6 +149,7 @@ Every fetcher returns an `hmrc_tbl` carrying source URL, fetch time,
 vintage, cell methods, and frequency:
 
 ``` r
+
 receipts <- hmrc_tax_receipts(tax = "vat", start = "2024-01")
 hmrc_meta(receipts)
 #> $dataset
@@ -169,6 +173,7 @@ it.
 ### `hmrc_search()` — discover datasets
 
 ``` r
+
 # Anything in the catalogue mentioning capital gains
 hmrc_search("capital gains")
 
@@ -184,6 +189,7 @@ hmrc_search(implemented = FALSE)
 ### `hmrc_list_tax_heads()` — available tax head identifiers
 
 ``` r
+
 # See all 41 series available in hmrc_tax_receipts()
 hmrc_list_tax_heads()
 #>               tax_head                                    description   category available_from
@@ -201,6 +207,7 @@ hmrc_list_tax_heads()
 ### `hmrc_vat()` — monthly VAT receipts
 
 ``` r
+
 # VAT receipts vs repayments since 2020
 vat <- hmrc_vat(measure = c("total", "repayments"), start = "2020-01")
 
@@ -218,6 +225,7 @@ head(vat[vat$measure == "repayments", c("date", "receipts_gbp_m")], 4)
 ### `hmrc_fuel_duties()` — monthly hydrocarbon oil duty
 
 ``` r
+
 # Total fuel duty since 2010, a slow structural decline
 fuel <- hmrc_fuel_duties(fuel = "total", start = "2010-01")
 
@@ -239,6 +247,7 @@ tail(annual, 6)
 ### `hmrc_tobacco_duties()` — monthly tobacco duty by product
 
 ``` r
+
 tobacco <- hmrc_tobacco_duties(
   product = c("cigarettes", "hand_rolling"),
   start   = "2015-01"
@@ -258,6 +267,7 @@ agg[agg$year == "2024", ]
 ### `hmrc_capital_gains()` — annual CGT taxpayers, gains, liabilities
 
 ``` r
+
 # Total CGT receipts in recent years
 cgt <- hmrc_capital_gains(measure = "tax_total_gbp_m")
 tail(cgt[, c("tax_year", "value")], 5)
@@ -274,6 +284,7 @@ tail(cgt[, c("tax_year", "value")], 5)
 ### `hmrc_inheritance_tax()` — IHT estates by net-estate band
 
 ``` r
+
 # Number of taxpaying estates by band, latest year of death
 iht <- hmrc_inheritance_tax()
 iht[iht$measure == "number_taxed" & iht$estate_band != "Total",
@@ -290,6 +301,7 @@ iht[iht$measure == "number_taxed" & iht$estate_band != "Total",
 ### `hmrc_patent_box()` — Patent Box elections and relief
 
 ``` r
+
 hmrc_patent_box()
 #>   tax_year companies relief_gbp_m
 #>    2013-14       710          365
@@ -303,6 +315,7 @@ hmrc_patent_box()
 ### `hmrc_creative_industries()` — film, TV, games, theatre, etc.
 
 ``` r
+
 # Film tax relief over time
 hmrc_creative_industries(sector = "film")
 
@@ -315,6 +328,7 @@ hmrc_creative_industries(tax_year = "2023-24")
 ### `hmrc_stamp_duty()` — annual stamp duty receipts
 
 ``` r
+
 sd <- hmrc_stamp_duty()
 sd[sd$tax_year %in% c("2019-20", "2020-21", "2021-22", "2022-23", "2023-24") &
    sd$type == "sdlt_total", c("tax_year", "receipts_gbp_m")]
@@ -331,6 +345,7 @@ sd[sd$tax_year %in% c("2019-20", "2020-21", "2021-22", "2022-23", "2023-24") &
 ### `hmrc_corporation_tax()` — annual CT receipts by levy type
 
 ``` r
+
 ct <- hmrc_corporation_tax()
 ct[ct$tax_year == "2024-25", c("type", "receipts_gbp_m")]
 #>                          type receipts_gbp_m
@@ -350,6 +365,7 @@ ct[ct$tax_year == "2024-25", c("type", "receipts_gbp_m")]
 ### `hmrc_rd_credits()` — R&D tax credit claims and cost
 
 ``` r
+
 # Cost of R&D tax credits by scheme: SME vs RDEC
 rd <- hmrc_rd_credits(measure = "amount_gbp_m")
 rd[rd$tax_year %in% c("2019-20", "2020-21", "2021-22", "2022-23", "2023-24"), ]
@@ -366,6 +382,7 @@ rd[rd$tax_year %in% c("2019-20", "2020-21", "2021-22", "2022-23", "2023-24"), ]
 ### `hmrc_tax_gap()` — tax gap estimates
 
 ``` r
+
 gap <- hmrc_tax_gap()
 
 # Largest gaps by absolute value
@@ -378,6 +395,7 @@ head(gap_sorted, 6)
 ### `hmrc_income_tax_stats()` — Income Tax liabilities by income range
 
 ``` r
+
 it <- hmrc_income_tax_stats(tax_year = "2023-24")
 it[, c("income_range", "taxpayers_thousands", "tax_liability_gbp_m", "average_rate_pct")]
 #>   income_range taxpayers_thousands tax_liability_gbp_m average_rate_pct
@@ -400,6 +418,7 @@ it[, c("income_range", "taxpayers_thousands", "tax_liability_gbp_m", "average_ra
 ### `hmrc_property_transactions()` — monthly transaction counts
 
 ``` r
+
 sdlt <- hmrc_property_transactions(
   type   = "residential",
   nation = "england",
@@ -423,6 +442,7 @@ Subsequent calls return the cached copy instantly with no network
 request.
 
 ``` r
+
 # Force a fresh download by setting cache = FALSE
 hmrc_tax_receipts(cache = FALSE)
 
@@ -493,6 +513,7 @@ file locally. This means:
 ## Citation
 
 ``` r
+
 citation("hmrc")
 ```
 
@@ -503,39 +524,16 @@ citation widget and Zenodo deposits.
 
 ## Related packages
 
-This package is part of a suite of R packages for economic, financial,
-and policy data. They share a consistent interface (named functions,
-tidy data frames, local caching, provenance metadata) and are designed
-to work together.
-
-**Data access:**
-
-| Package                                                        | Source                                                |
-|----------------------------------------------------------------|-------------------------------------------------------|
-| [`ons`](https://github.com/charlescoverdale/ons)               | UK Office for National Statistics                     |
-| [`boe`](https://github.com/charlescoverdale/boe)               | Bank of England                                       |
-| [`obr`](https://github.com/charlescoverdale/obr)               | Office for Budget Responsibility                      |
-| [`ukhousing`](https://github.com/charlescoverdale/ukhousing)   | UK Land Registry, EPC, Planning                       |
-| [`fred`](https://github.com/charlescoverdale/fred)             | US Federal Reserve (FRED)                             |
-| [`readecb`](https://github.com/charlescoverdale/readecb)       | European Central Bank                                 |
-| [`readoecd`](https://github.com/charlescoverdale/readoecd)     | OECD                                                  |
-| [`readnoaa`](https://github.com/charlescoverdale/readnoaa)     | NOAA Climate Data                                     |
-| [`readaec`](https://github.com/charlescoverdale/readaec)       | Australian Electoral Commission                       |
-| [`comtrade`](https://github.com/charlescoverdale/comtrade)     | UN Comtrade                                           |
-| [`carbondata`](https://github.com/charlescoverdale/carbondata) | Carbon markets (EU ETS, UK ETS, voluntary registries) |
-
-**Analytical toolkits:**
-
-| Package                                                            | Purpose                                                         |
-|--------------------------------------------------------------------|-----------------------------------------------------------------|
-| [`inflateR`](https://github.com/charlescoverdale/inflateR)         | Inflation adjustment for price series                           |
+| Package | Description |
+|----|----|
+| [`ons`](https://github.com/charlescoverdale/ons) | UK Office for National Statistics data |
+| [`obr`](https://github.com/charlescoverdale/obr) | Office for Budget Responsibility fiscal forecasts |
+| [`boe`](https://github.com/charlescoverdale/boe) | Bank of England data |
+| [`ukhousing`](https://github.com/charlescoverdale/ukhousing) | UK Land Registry, EPC, and planning data |
+| [`ato`](https://github.com/charlescoverdale/ato) | Australian Taxation Office data (counterpart) |
+| [`inflateR`](https://github.com/charlescoverdale/inflateR) | Inflation adjustment for UK price series |
 | [`inflationkit`](https://github.com/charlescoverdale/inflationkit) | Inflation analysis (decomposition, persistence, Phillips curve) |
-| [`yieldcurves`](https://github.com/charlescoverdale/yieldcurves)   | Yield curve fitting (Nelson-Siegel, Svensson)                   |
-| [`debtkit`](https://github.com/charlescoverdale/debtkit)           | Debt sustainability analysis                                    |
-| [`nowcast`](https://github.com/charlescoverdale/nowcast)           | Economic nowcasting                                             |
-| [`predictset`](https://github.com/charlescoverdale/predictset)     | Conformal prediction                                            |
-| [`climatekit`](https://github.com/charlescoverdale/climatekit)     | Climate indices                                                 |
-| [`inequality`](https://github.com/charlescoverdale/inequality)     | Inequality and poverty measurement                              |
+| [`inequality`](https://github.com/charlescoverdale/inequality) | Inequality and poverty measurement |
 
 ------------------------------------------------------------------------
 

@@ -8,6 +8,7 @@ of `data.frame` carrying provenance metadata (source URL, fetch time,
 vintage, cell methods) for reproducible fiscal research.
 
 ``` r
+
 library(hmrc)
 ```
 
@@ -19,6 +20,7 @@ searches the dataset catalogue by keyword.
 returns a tidy index of implemented and planned datasets.
 
 ``` r
+
 # Anything in the catalogue mentioning capital gains
 hmrc_search("capital gains")
 
@@ -34,6 +36,7 @@ Contributions bulletin, covering 41 tax heads from April 2008 to the
 most recent published month.
 
 ``` r
+
 # All 41 tax heads
 receipts <- hmrc_tax_receipts()
 head(receipts)
@@ -47,12 +50,14 @@ Use
 to see all available identifiers without downloading data:
 
 ``` r
+
 hmrc_list_tax_heads()
 ```
 
 Filter to specific heads and date ranges:
 
 ``` r
+
 big_three <- hmrc_tax_receipts(
   tax   = c("income_tax", "vat", "nics_total"),
   start = "2020-01"
@@ -62,6 +67,7 @@ big_three <- hmrc_tax_receipts(
 Inspect the provenance metadata on any result:
 
 ``` r
+
 hmrc_meta(big_three)
 #> $dataset
 #> [1] "tax_receipts_monthly"
@@ -76,6 +82,7 @@ hmrc_meta(big_three)
 ```
 
 ``` r
+
 library(ggplot2)
 
 ggplot(big_three, aes(x = date, y = receipts_gbp_m / 1000, colour = description)) +
@@ -99,6 +106,7 @@ covers monthly VAT receipts from April 1973, broken into payments,
 repayments, import VAT, and home VAT.
 
 ``` r
+
 # Net VAT: total minus repayments
 vat <- hmrc_vat(measure = c("total", "repayments"), start = "2015-01")
 
@@ -113,6 +121,7 @@ covers monthly hydrocarbon oil duty receipts from January 1990, broken
 down into petrol, diesel, other, and total.
 
 ``` r
+
 fuel <- hmrc_fuel_duties(fuel = "total", start = "2010-01")
 
 # Annual totals
@@ -127,6 +136,7 @@ covers monthly tobacco duty receipts from January 1991, by product:
 cigarettes, cigars, hand-rolling tobacco, other, and total.
 
 ``` r
+
 tobacco <- hmrc_tobacco_duties(product = c("cigarettes", "hand_rolling"),
                                start   = "2015-01")
 ```
@@ -140,6 +150,7 @@ Developer Tax (RPDT), Energy Profits Levy (EPL), and Electricity
 Generators Levy (EGL). Covers 2019-20 to the most recent financial year.
 
 ``` r
+
 ct <- hmrc_corporation_tax()
 ct[ct$type == "total_ct", c("tax_year", "receipts_gbp_m")]
 ```
@@ -152,6 +163,7 @@ property, SDLT on new leases, SDRT on shares, and stamp duty on
 documents.
 
 ``` r
+
 sd <- hmrc_stamp_duty(type = "sdlt_total")
 tail(sd[, c("tax_year", "receipts_gbp_m")], 5)
 ```
@@ -163,6 +175,7 @@ returns annual statistics on R&D tax credit claims and their cost by
 scheme (SME R&D Relief and RDEC) from 2000-01.
 
 ``` r
+
 # Cost of R&D credits: SME vs RDEC
 rd <- hmrc_rd_credits(measure = "amount_gbp_m")
 rd[rd$tax_year == "2023-24", c("scheme", "description", "value")]
@@ -175,6 +188,7 @@ returns annual estimates of CGT taxpayers, gains, and tax liabilities
 from 1987-88 (HMRC CGT Table 1).
 
 ``` r
+
 # Total CGT receipts over time
 cgt <- hmrc_capital_gains(measure = "tax_total_gbp_m")
 tail(cgt[, c("tax_year", "value")], 6)
@@ -189,6 +203,7 @@ Table 12.1a). The publication carries a roughly three-year
 administrative lag.
 
 ``` r
+
 iht <- hmrc_inheritance_tax()
 iht[iht$measure == "number_taxed" & iht$estate_band != "Total",
     c("estate_band", "value")]
@@ -201,6 +216,7 @@ returns the annual count of companies electing into the Patent Box and
 total relief claimed (HMRC Patent Box Table 1) from 2013-14 onwards.
 
 ``` r
+
 hmrc_patent_box()
 ```
 
@@ -212,6 +228,7 @@ returns annual reliefs across the eight creative industries reliefs
 orchestra, museums and galleries).
 
 ``` r
+
 # Film tax relief over time
 hmrc_creative_industries(sector = "film")
 
@@ -227,6 +244,7 @@ by tax type, taxpayer group, and behaviour component (evasion, error,
 avoidance, etc.).
 
 ``` r
+
 gap <- hmrc_tax_gap()
 
 # Sort by absolute gap
@@ -242,6 +260,7 @@ including taxpayer counts, total income, tax liabilities, and average
 tax rates.
 
 ``` r
+
 it <- hmrc_income_tax_stats(tax_year = "2023-24")
 it[, c("income_range", "taxpayers_thousands", "tax_liability_gbp_m", "average_rate_pct")]
 ```
@@ -253,6 +272,7 @@ returns monthly counts of residential and non-residential property
 transactions by UK nation from April 2005.
 
 ``` r
+
 prop <- hmrc_property_transactions(
   type   = "residential",
   nation = "uk",
@@ -261,6 +281,7 @@ prop <- hmrc_property_transactions(
 ```
 
 ``` r
+
 ggplot(prop, aes(x = date, y = transactions / 1000)) +
   geom_line(colour = "#3B82F6", linewidth = 0.8) +
   scale_y_continuous(labels = scales::label_comma(suffix = "k")) +
@@ -280,6 +301,7 @@ Subsequent calls return the cached file instantly with no network
 request.
 
 ``` r
+
 # Inspect the cache
 hmrc_cache_info()
 

@@ -62,10 +62,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_fuel_duties(fuel = "total", start = "2010-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [730ms]
+#> ✔ Resolving download URL from GOV.UK Content API [129ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [1.2s]
+#> ✔ Downloading data file [925ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -86,11 +86,11 @@ hmrc_fuel_duties(fuel = "total", start = "2010-01")
 #> • `` -> `...15`
 #> • `` -> `...16`
 #> • `` -> `...17`
-#> ✔ Parsing data [186ms]
+#> ✔ Parsing data [182ms]
 #> 
 #> # Hydrocarbon Oils Bulletin (fuel duties)
 #> # Source: https://www.gov.uk/government/statistics/hydrocarbon-oils-bulletin
-#> # Fetched 2026-04-26 13:15:43 UTC | Vintage: latest | Cells: cash | Freq: monthly | 192 rows x 4 cols
+#> # Fetched 2026-05-04 19:13:11 UTC | Vintage: latest | Cells: cash | Freq: monthly | 192 rows x 4 cols
 #> 
 #>           date  fuel         description receipts_gbp_m
 #> 1   2010-01-01 total Total oils receipts      1949.0318
@@ -287,7 +287,7 @@ hmrc_fuel_duties(fuel = "total", start = "2010-01")
 #> 192 2025-12-01 total Total oils receipts      2072.1497
 hmrc_fuel_duties()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [24ms]
+#> ✔ Resolving download URL from GOV.UK Content API [18ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [5ms]
@@ -311,11 +311,11 @@ hmrc_fuel_duties()
 #> • `` -> `...15`
 #> • `` -> `...16`
 #> • `` -> `...17`
-#> ✔ Parsing data [167ms]
+#> ✔ Parsing data [166ms]
 #> 
 #> # Hydrocarbon Oils Bulletin (fuel duties)
 #> # Source: https://www.gov.uk/government/statistics/hydrocarbon-oils-bulletin
-#> # Fetched 2026-04-26 13:15:43 UTC | Vintage: latest | Cells: cash | Freq: monthly | 1,728 rows x 4 cols
+#> # Fetched 2026-05-04 19:13:11 UTC | Vintage: latest | Cells: cash | Freq: monthly | 1,728 rows x 4 cols
 #> 
 #>            date   fuel         description receipts_gbp_m
 #> 1    1990-01-01 diesel       Diesel duties     318.094000

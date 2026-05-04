@@ -2,6 +2,8 @@
 
 ## hmrc 0.4.0
 
+CRAN release: 2026-04-26
+
 ### New data fetchers (Phase 2 of the v1.0.0 roadmap, partial)
 
 - [`hmrc_capital_gains()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_capital_gains.md)
@@ -77,20 +79,20 @@ inspection.
 All exported data functions adopt the `hmrc_*` prefix to match sibling
 packages and improve discoverability:
 
-| Before                                                                                           | After                                                                                                             |
-|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| [`get_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)          | [`hmrc_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_receipts.md)                   |
-| [`get_vat()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)                   | [`hmrc_vat()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_vat.md)                                     |
-| [`get_fuel_duties()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)           | [`hmrc_fuel_duties()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_fuel_duties.md)                     |
-| [`get_tobacco_duties()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)        | [`hmrc_tobacco_duties()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tobacco_duties.md)               |
-| [`get_corporation_tax()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)       | [`hmrc_corporation_tax()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_corporation_tax.md)             |
-| [`get_stamp_duty()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)            | [`hmrc_stamp_duty()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_stamp_duty.md)                       |
+| Before | After |
+|----|----|
+| [`get_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_tax_receipts()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_receipts.md) |
+| [`get_vat()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_vat()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_vat.md) |
+| [`get_fuel_duties()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_fuel_duties()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_fuel_duties.md) |
+| [`get_tobacco_duties()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_tobacco_duties()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tobacco_duties.md) |
+| [`get_corporation_tax()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_corporation_tax()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_corporation_tax.md) |
+| [`get_stamp_duty()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_stamp_duty()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_stamp_duty.md) |
 | [`get_property_transactions()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_property_transactions()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_property_transactions.md) |
-| [`get_income_tax_stats()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)      | [`hmrc_income_tax_stats()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_income_tax_stats.md)           |
-| [`get_rd_credits()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)            | [`hmrc_rd_credits()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_rd_credits.md)                       |
-| [`get_tax_gap()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)               | [`hmrc_tax_gap()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_gap.md)                             |
-| [`list_tax_heads()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)            | [`hmrc_list_tax_heads()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_list_tax_heads.md)               |
-| [`clear_cache()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)               | [`hmrc_clear_cache()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_clear_cache.md)                     |
+| [`get_income_tax_stats()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_income_tax_stats()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_income_tax_stats.md) |
+| [`get_rd_credits()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_rd_credits()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_rd_credits.md) |
+| [`get_tax_gap()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_tax_gap()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_tax_gap.md) |
+| [`list_tax_heads()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_list_tax_heads()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_list_tax_heads.md) |
+| [`clear_cache()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md) | [`hmrc_clear_cache()`](https://charlescoverdale.github.io/hmrc/reference/hmrc_clear_cache.md) |
 
 The old `get_*` and
 [`clear_cache()`](https://charlescoverdale.github.io/hmrc/reference/deprecated.md)

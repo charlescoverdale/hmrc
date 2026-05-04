@@ -70,10 +70,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_vat(measure = "total", start = "2010-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [587ms]
+#> ✔ Resolving download URL from GOV.UK Content API [429ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [1.1s]
+#> ✔ Downloading data file [810ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -83,11 +83,11 @@ hmrc_vat(measure = "total", start = "2010-01")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [96ms]
+#> ✔ Parsing data [94ms]
 #> 
 #> # VAT annual statistics (monthly receipts)
 #> # Source: https://www.gov.uk/government/statistics/value-added-tax-vat-annual-statistics
-#> # Fetched 2026-04-26 13:16:07 UTC | Vintage: latest | Cells: cash | Freq: monthly | 189 rows x 4 cols
+#> # Fetched 2026-05-04 19:13:31 UTC | Vintage: latest | Cells: cash | Freq: monthly | 189 rows x 4 cols
 #> 
 #>           date measure        description receipts_gbp_m
 #> 1   2010-01-01   total Total VAT receipts           8230
@@ -281,10 +281,10 @@ hmrc_vat(measure = "total", start = "2010-01")
 #> 189 2025-09-01   total Total VAT receipts           9920
 hmrc_vat(start = "2020-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [15ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [6ms]
+#> ✔ Using cached file [5ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -294,11 +294,11 @@ hmrc_vat(start = "2020-01")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [104ms]
+#> ✔ Parsing data [101ms]
 #> 
 #> # VAT annual statistics (monthly receipts)
 #> # Source: https://www.gov.uk/government/statistics/value-added-tax-vat-annual-statistics
-#> # Fetched 2026-04-26 13:16:08 UTC | Vintage: latest | Cells: cash | Freq: monthly | 345 rows x 4 cols
+#> # Fetched 2026-05-04 19:13:31 UTC | Vintage: latest | Cells: cash | Freq: monthly | 345 rows x 4 cols
 #> 
 #>           date    measure        description receipts_gbp_m
 #> 1   2020-01-01   home_vat           Home VAT          12000

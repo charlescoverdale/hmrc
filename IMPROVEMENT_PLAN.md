@@ -51,16 +51,16 @@ tools (PolicyEngine UK, UKMOD) rather than competing with them.
 
 ### 1.2 Architectural gaps vs the author’s own `boe` and `fred` packages
 
-| Feature                             | hmrc v0.3.3 | boe v0.1.2.9000  | fred v0.2.0          |
-|-------------------------------------|-------------|------------------|----------------------|
-| Prefix consistency (`pkg_*`)        | get\_\*     | boe\_\*          | fred\_\*             |
-| S3 class with provenance            | none        | `boe_tbl`        | `fred_tbl`           |
-| `*_search()` for catalogue browsing | missing     | yes              | implied via docs     |
-| `*_cache_info()`                    | missing     | yes              | yes                  |
-| Vintage / as-of queries             | missing     | yes (`vintage=`) | yes (`fred_as_of`)   |
-| First-release retrieval             | missing     | n/a              | `fred_first_release` |
-| CITATION / DOI                      | none        | tbd              | tbd                  |
-| JOSS paper                          | none        | planned          | planned              |
+| Feature | hmrc v0.3.3 | boe v0.1.2.9000 | fred v0.2.0 |
+|----|----|----|----|
+| Prefix consistency (`pkg_*`) | get\_\* | boe\_\* | fred\_\* |
+| S3 class with provenance | none | `boe_tbl` | `fred_tbl` |
+| `*_search()` for catalogue browsing | missing | yes | implied via docs |
+| `*_cache_info()` | missing | yes | yes |
+| Vintage / as-of queries | missing | yes (`vintage=`) | yes (`fred_as_of`) |
+| First-release retrieval | missing | n/a | `fred_first_release` |
+| CITATION / DOI | none | tbd | tbd |
+| JOSS paper | none | planned | planned |
 
 The package therefore sits *behind* the maintainer’s own
 state-of-the-art. Closing this gap is non-negotiable for a
@@ -423,6 +423,7 @@ mentions within 12 months).
 **8.2 inst/CITATION** in R format:
 
 ``` r
+
 citEntry(
   entry = "Manual",
   title = "hmrc: Download and Tidy HMRC Statistical Data",
@@ -522,6 +523,7 @@ Society for Economic Measurement.
 ### 5.2 Provenance attachment helper
 
 ``` r
+
 # R/hmrc-tbl.R
 new_hmrc_tbl <- function(x, source_url, attachment_url, hmrc_publication,
                          cell_methods = "cash", vintage_date = NA) {
@@ -552,6 +554,7 @@ print.hmrc_tbl <- function(x, ...) {
 ### 5.3 Catalogue table
 
 ``` r
+
 # data-raw/catalogue.R produces data/catalogue.rda
 catalogue <- tibble::tribble(
   ~dataset,                    ~function_name,            ~frequency, ~start,    ~publisher,
@@ -565,6 +568,7 @@ catalogue <- tibble::tribble(
 ### 5.4 Vintage support
 
 ``` r
+
 hmrc_as_of <- function(dataset, date, ...) {
   date <- as.Date(date)
   snap <- find_wayback_snapshot(catalogue_url(dataset), date)
@@ -581,6 +585,7 @@ hmrc_as_of <- function(dataset, date, ...) {
 Each renamed function ships a deprecation alias in `R/deprec.R`:
 
 ``` r
+
 get_tax_receipts <- function(...) {
   lifecycle::deprecate_warn("0.4.0", "get_tax_receipts()", "hmrc_tax_receipts()")
   hmrc_tax_receipts(...)
@@ -597,14 +602,14 @@ cycle.
 
 ### 6.1 Vignette portfolio (final)
 
-| Vignette                                   | Length | Audience                            |
-|--------------------------------------------|--------|-------------------------------------|
-| Getting started                            | short  | first-time users                    |
-| Reproducible fiscal analysis with vintages | long   | academic econometricians            |
-| HMRC ↔︎ OBR ↔︎ ONS bridge                    | medium | HMT / OBR analysts                  |
-| Tax incidence with SPI                     | medium | IFS / RF distributional analysts    |
-| Green Book CBA in R                        | medium | HMT / consultancy CBA practitioners |
-| PAYE RTI labour-market toolkit             | medium | labour economists                   |
+| Vignette | Length | Audience |
+|----|----|----|
+| Getting started | short | first-time users |
+| Reproducible fiscal analysis with vintages | long | academic econometricians |
+| HMRC ↔︎ OBR ↔︎ ONS bridge | medium | HMT / OBR analysts |
+| Tax incidence with SPI | medium | IFS / RF distributional analysts |
+| Green Book CBA in R | medium | HMT / consultancy CBA practitioners |
+| PAYE RTI labour-market toolkit | medium | labour economists |
 
 ### 6.2 README structure
 
@@ -682,16 +687,16 @@ feedback.
 
 ## 8. Risk register
 
-| Risk                                                               | Likelihood | Impact | Mitigation                                                                                                     |
-|--------------------------------------------------------------------|------------|--------|----------------------------------------------------------------------------------------------------------------|
-| HMRC restructures gov.uk publication URLs                          | Medium     | High   | Already mitigated by Content API resolution; add monitoring action.                                            |
-| Data revisions invalidate cached results                           | High       | Medium | Vintage support (Phase 4) makes revisions a feature not a bug.                                                 |
-| Scope creep into microsim                                          | Medium     | High   | Hard boundary documented (§2.4). PolicyEngine UK does microsim; we wrap data.                                  |
-| Maintenance burden grows with 32 exports                           | High       | Medium | Automated URL-health GitHub Action; quarterly catalogue refresh; modular per-dataset tests.                    |
-| JOSS reviewers reject for insufficient novelty                     | Medium     | Medium | Frame as “research infrastructure” not “novel methodology”; cite RAP strategy and RFS code policy.             |
-| Wayback snapshots are sparse for some datasets                     | Medium     | Low    | Document coverage in `hmrc_vintages_available`; fall back to gov.uk’s own attachment versioning where present. |
-| User base too small to dethrone hand-scraping                      | Medium     | High   | Treasury RAP strategy is a tailwind; success of `boe`/`ons`/`obr` shows path.                                  |
-| HMRC API Developer Hub rate limits if we add operational endpoints | Low        | Low    | Phase 6 explicitly excludes operational APIs.                                                                  |
+| Risk | Likelihood | Impact | Mitigation |
+|----|----|----|----|
+| HMRC restructures gov.uk publication URLs | Medium | High | Already mitigated by Content API resolution; add monitoring action. |
+| Data revisions invalidate cached results | High | Medium | Vintage support (Phase 4) makes revisions a feature not a bug. |
+| Scope creep into microsim | Medium | High | Hard boundary documented (§2.4). PolicyEngine UK does microsim; we wrap data. |
+| Maintenance burden grows with 32 exports | High | Medium | Automated URL-health GitHub Action; quarterly catalogue refresh; modular per-dataset tests. |
+| JOSS reviewers reject for insufficient novelty | Medium | Medium | Frame as “research infrastructure” not “novel methodology”; cite RAP strategy and RFS code policy. |
+| Wayback snapshots are sparse for some datasets | Medium | Low | Document coverage in `hmrc_vintages_available`; fall back to gov.uk’s own attachment versioning where present. |
+| User base too small to dethrone hand-scraping | Medium | High | Treasury RAP strategy is a tailwind; success of `boe`/`ons`/`obr` shows path. |
+| HMRC API Developer Hub rate limits if we add operational endpoints | Low | Low | Phase 6 explicitly excludes operational APIs. |
 
 ------------------------------------------------------------------------
 

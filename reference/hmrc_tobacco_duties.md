@@ -63,10 +63,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_tobacco_duties(start = "2015-01")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [582ms]
+#> ✔ Resolving download URL from GOV.UK Content API [526ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [578ms]
+#> ✔ Downloading data file [712ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -76,11 +76,11 @@ hmrc_tobacco_duties(start = "2015-01")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [108ms]
+#> ✔ Parsing data [103ms]
 #> 
 #> # Tobacco Bulletin
 #> # Source: https://www.gov.uk/government/statistics/tobacco-bulletin
-#> # Fetched 2026-04-26 13:16:05 UTC | Vintage: latest | Cells: cash | Freq: monthly | 665 rows x 4 cols
+#> # Fetched 2026-05-04 19:13:30 UTC | Vintage: latest | Cells: cash | Freq: monthly | 665 rows x 4 cols
 #> 
 #>           date      product            description receipts_gbp_m
 #> 1   2015-01-01   cigarettes             Cigarettes    862.0656853
@@ -750,7 +750,7 @@ hmrc_tobacco_duties(start = "2015-01")
 #> 665 2026-01-01        total Total tobacco products    430.8492678
 hmrc_tobacco_duties(product = "cigarettes")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [14ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
@@ -763,11 +763,11 @@ hmrc_tobacco_duties(product = "cigarettes")
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [102ms]
+#> ✔ Parsing data [101ms]
 #> 
 #> # Tobacco Bulletin
 #> # Source: https://www.gov.uk/government/statistics/tobacco-bulletin
-#> # Fetched 2026-04-26 13:16:05 UTC | Vintage: latest | Cells: cash | Freq: monthly | 421 rows x 4 cols
+#> # Fetched 2026-05-04 19:13:30 UTC | Vintage: latest | Cells: cash | Freq: monthly | 421 rows x 4 cols
 #> 
 #>           date    product description receipts_gbp_m
 #> 1   1991-01-01 cigarettes  Cigarettes             NA

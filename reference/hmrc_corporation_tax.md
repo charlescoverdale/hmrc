@@ -55,13 +55,13 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_corporation_tax()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✖ Resolving download URL from GOV.UK Content API [935ms]
+#> ✖ Resolving download URL from GOV.UK Content API [712ms]
 #> 
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [172ms]
+#> ✔ Resolving download URL from GOV.UK Content API [125ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [780ms]
+#> ✔ Downloading data file [596ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -72,11 +72,11 @@ hmrc_corporation_tax()
 #> • `` -> `...5`
 #> • `` -> `...6`
 #> • `` -> `...7`
-#> ✔ Parsing data [103ms]
+#> ✔ Parsing data [101ms]
 #> 
 #> # Corporation Tax statistics
 #> # Source: https://www.gov.uk/government/statistics/corporation-tax-statistics-2025
-#> # Fetched 2026-04-26 13:15:34 UTC | Vintage: latest | Cells: cash | Freq: annual | 54 rows x 4 cols
+#> # Fetched 2026-05-04 19:13:05 UTC | Vintage: latest | Cells: cash | Freq: annual | 54 rows x 4 cols
 #> 
 #>    tax_year                        type
 #> 1   2019-20         all_corporate_taxes

@@ -72,10 +72,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_inheritance_tax()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [728ms]
+#> ✔ Resolving download URL from GOV.UK Content API [535ms]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [627ms]
+#> ✔ Downloading data file [474ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -85,11 +85,11 @@ hmrc_inheritance_tax()
 #> • `` -> `...4`
 #> • `` -> `...5`
 #> • `` -> `...6`
-#> ✔ Parsing data [60ms]
+#> ✔ Parsing data [57ms]
 #> 
 #> # Inheritance Tax liabilities statistics (Table 12.1a)
 #> # Source: https://www.gov.uk/government/statistics/inheritance-tax-liabilities-statistics
-#> # Fetched 2026-04-26 13:15:47 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 95 rows x 5 cols
+#> # Fetched 2026-05-04 19:13:15 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 95 rows x 5 cols
 #> 
 #>    tax_year estate_band_lower_gbp   estate_band            measure    value
 #> 1   2022-23               0.0e+00    GBP 0-100k        avg_tax_gbp       NA

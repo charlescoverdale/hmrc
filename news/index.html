@@ -37,7 +37,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.4.0" id="hmrc-040">hmrc 0.4.0<a class="anchor" aria-label="anchor" href="#hmrc-040"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.4.0" id="hmrc-040">hmrc 0.4.0<a class="anchor" aria-label="anchor" href="#hmrc-040"></a></h2><p class="text-muted">CRAN release: 2026-04-26</p>
 <div class="section level3">
 <h3 id="new-data-fetchers-phase-of-the-v100-roadmap-partial-0-4-0">New data fetchers (Phase 2 of the v1.0.0 roadmap, partial)<a class="anchor" aria-label="anchor" href="#new-data-fetchers-phase-of-the-v100-roadmap-partial-0-4-0"></a></h3>
 <ul><li>
@@ -56,7 +56,7 @@
 <div class="section level4">
 <h4 id="new-hmrc_tbl-s3-class-with-provenance-metadata-0-4-0">New: <code>hmrc_tbl</code> S3 class with provenance metadata<a class="anchor" aria-label="anchor" href="#new-hmrc_tbl-s3-class-with-provenance-metadata-0-4-0"></a></h4>
 <ul><li>All <code>hmrc_*</code> data fetchers now return an <code>hmrc_tbl</code> (a subclass of <code>data.frame</code>) with a <code>"hmrc_meta"</code> attribute containing the source URL, attachment URL, fetch time, vintage, cell methods (cash / accruals / liabilities / counts), frequency, and package version.</li>
-<li>New generic <code>print.hmrc_tbl()</code> shows a 2-line provenance header followed by the data, e.g. <code>Source:</code>, <code>Fetched: ... | Vintage: latest | Cells:   cash | Freq: monthly | 1,234 rows x 4 cols</code>.</li>
+<li>New generic <code>print.hmrc_tbl()</code> shows a 2-line provenance header followed by the data, e.g. <code>Source:</code>, <code>Fetched: ... | Vintage: latest | Cells: cash | Freq: monthly | 1,234 rows x 4 cols</code>.</li>
 <li>New helper <code><a href="../reference/hmrc_meta.html">hmrc_meta()</a></code> extracts the metadata list for citation, audit trails, and reproducibility.</li>
 <li>
 <code><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame()</a></code> strips the class and metadata cleanly for downstream tidyverse use; subsetting via <code>[</code> preserves the class and provenance.</li>
@@ -75,31 +75,31 @@
 <h4 id="renamed-get_---hmrc_-0-4-0">Renamed: <code>get_*</code> -&gt; <code>hmrc_*</code>
 <a class="anchor" aria-label="anchor" href="#renamed-get_---hmrc_-0-4-0"></a></h4>
 <p>All exported data functions adopt the <code>hmrc_*</code> prefix to match sibling packages and improve discoverability:</p>
-<table class="table"><thead><tr class="header"><th>Before</th>
+<table class="table"><thead><tr><th>Before</th>
 <th>After</th>
-</tr></thead><tbody><tr class="odd"><td><code><a href="../reference/deprecated.html">get_tax_receipts()</a></code></td>
+</tr></thead><tbody><tr><td><code><a href="../reference/deprecated.html">get_tax_receipts()</a></code></td>
 <td><code><a href="../reference/hmrc_tax_receipts.html">hmrc_tax_receipts()</a></code></td>
-</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_vat()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_vat()</a></code></td>
 <td><code><a href="../reference/hmrc_vat.html">hmrc_vat()</a></code></td>
-</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">get_fuel_duties()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_fuel_duties()</a></code></td>
 <td><code><a href="../reference/hmrc_fuel_duties.html">hmrc_fuel_duties()</a></code></td>
-</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_tobacco_duties()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_tobacco_duties()</a></code></td>
 <td><code><a href="../reference/hmrc_tobacco_duties.html">hmrc_tobacco_duties()</a></code></td>
-</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">get_corporation_tax()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_corporation_tax()</a></code></td>
 <td><code><a href="../reference/hmrc_corporation_tax.html">hmrc_corporation_tax()</a></code></td>
-</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_stamp_duty()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_stamp_duty()</a></code></td>
 <td><code><a href="../reference/hmrc_stamp_duty.html">hmrc_stamp_duty()</a></code></td>
-</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">get_property_transactions()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_property_transactions()</a></code></td>
 <td><code><a href="../reference/hmrc_property_transactions.html">hmrc_property_transactions()</a></code></td>
-</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_income_tax_stats()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_income_tax_stats()</a></code></td>
 <td><code><a href="../reference/hmrc_income_tax_stats.html">hmrc_income_tax_stats()</a></code></td>
-</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">get_rd_credits()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_rd_credits()</a></code></td>
 <td><code><a href="../reference/hmrc_rd_credits.html">hmrc_rd_credits()</a></code></td>
-</tr><tr class="even"><td><code><a href="../reference/deprecated.html">get_tax_gap()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">get_tax_gap()</a></code></td>
 <td><code><a href="../reference/hmrc_tax_gap.html">hmrc_tax_gap()</a></code></td>
-</tr><tr class="odd"><td><code><a href="../reference/deprecated.html">list_tax_heads()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">list_tax_heads()</a></code></td>
 <td><code><a href="../reference/hmrc_list_tax_heads.html">hmrc_list_tax_heads()</a></code></td>
-</tr><tr class="even"><td><code><a href="../reference/deprecated.html">clear_cache()</a></code></td>
+</tr><tr><td><code><a href="../reference/deprecated.html">clear_cache()</a></code></td>
 <td><code><a href="../reference/hmrc_clear_cache.html">hmrc_clear_cache()</a></code></td>
 </tr></tbody></table><p>The old <code>get_*</code> and <code><a href="../reference/deprecated.html">clear_cache()</a></code> / <code><a href="../reference/deprecated.html">list_tax_heads()</a></code> names continue to work but emit a one-time-per-session deprecation warning via <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_warn()</a></code>. They will be removed in v0.6.0.</p>
 </div>

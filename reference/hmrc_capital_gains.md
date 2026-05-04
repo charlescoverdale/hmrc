@@ -73,10 +73,10 @@ Other data fetchers:
 op <- options(hmrc.cache_dir = tempdir())
 hmrc_capital_gains()
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [1.5s]
+#> ✔ Resolving download URL from GOV.UK Content API [1.4s]
 #> 
 #> ℹ Downloading data file
-#> ✔ Downloading data file [732ms]
+#> ✔ Downloading data file [592ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -96,7 +96,7 @@ hmrc_capital_gains()
 #> 
 #> # Capital Gains Tax statistics (Table 1)
 #> # Source: https://www.gov.uk/government/statistics/capital-gains-tax-statistics
-#> # Fetched 2026-04-26 13:15:32 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 396 rows x 3 cols
+#> # Fetched 2026-05-04 19:13:03 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 396 rows x 3 cols
 #> 
 #>     tax_year                         measure value
 #> 1    1987-88                     females_pct    NA
@@ -497,10 +497,10 @@ hmrc_capital_gains()
 #> 396  2023-24      taxpayers_trusts_thousands    19
 hmrc_capital_gains(measure = "tax_total_gbp_m")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [21ms]
+#> ✔ Resolving download URL from GOV.UK Content API [14ms]
 #> 
 #> ℹ Using cached file
-#> ✔ Using cached file [11ms]
+#> ✔ Using cached file [10ms]
 #> 
 #> ℹ Parsing data
 #> New names:
@@ -516,11 +516,11 @@ hmrc_capital_gains(measure = "tax_total_gbp_m")
 #> • `` -> `...10`
 #> • `` -> `...11`
 #> • `` -> `...12`
-#> ✔ Parsing data [111ms]
+#> ✔ Parsing data [109ms]
 #> 
 #> # Capital Gains Tax statistics (Table 1)
 #> # Source: https://www.gov.uk/government/statistics/capital-gains-tax-statistics
-#> # Fetched 2026-04-26 13:15:32 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 36 rows x 3 cols
+#> # Fetched 2026-05-04 19:13:03 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 36 rows x 3 cols
 #> 
 #>    tax_year         measure value
 #> 1   1987-88 tax_total_gbp_m  2175
@@ -561,7 +561,7 @@ hmrc_capital_gains(measure = "tax_total_gbp_m")
 #> 36  2023-24 tax_total_gbp_m 12086
 hmrc_capital_gains(tax_year = "2022-23")
 #> ℹ Resolving download URL from GOV.UK Content API
-#> ✔ Resolving download URL from GOV.UK Content API [24ms]
+#> ✔ Resolving download URL from GOV.UK Content API [17ms]
 #> 
 #> ℹ Using cached file
 #> ✔ Using cached file [6ms]
@@ -580,11 +580,11 @@ hmrc_capital_gains(tax_year = "2022-23")
 #> • `` -> `...10`
 #> • `` -> `...11`
 #> • `` -> `...12`
-#> ✔ Parsing data [116ms]
+#> ✔ Parsing data [115ms]
 #> 
 #> # Capital Gains Tax statistics (Table 1)
 #> # Source: https://www.gov.uk/government/statistics/capital-gains-tax-statistics
-#> # Fetched 2026-04-26 13:15:32 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 11 rows x 3 cols
+#> # Fetched 2026-05-04 19:13:03 UTC | Vintage: latest | Cells: liabilities | Freq: annual | 11 rows x 3 cols
 #> 
 #>    tax_year                         measure value
 #> 1   2022-23                     females_pct    44
